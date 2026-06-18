@@ -63,8 +63,8 @@ Mat4x4 Mat4x4::translation(float x, float y, float z)
     return out;
 }
 
-
-Mat4x4 Mat4x4::projection(int screen_width, int screen_height, float fov_degrees,float near_plane,float far_plane){
+Mat4x4 Mat4x4::projection(int screen_width, int screen_height, float fov_degrees, float near_plane, float far_plane)
+{
     Mat4x4 out;
 
     float fovRad = 1.0f / tanf(fov_degrees * 0.5f / 180.0f * 3.14159f);
@@ -80,8 +80,8 @@ Mat4x4 Mat4x4::projection(int screen_width, int screen_height, float fov_degrees
     return out;
 }
 
-
-Vec3 Mat4x4::vecMultiply(const Vec3& v) const{
+Vec3 Mat4x4::vecMultiply(const Vec3 &v) const
+{
     Vec3 out;
     out.x = v.x * matrix[0][0] + v.y * matrix[1][0] + v.z * matrix[2][0] + matrix[3][0];
     out.y = v.x * matrix[0][1] + v.y * matrix[1][1] + v.z * matrix[2][1] + matrix[3][1];
@@ -98,6 +98,20 @@ Vec3 Mat4x4::vecMultiply(const Vec3& v) const{
     return out;
 }
 
-Mat4x4 Mat4x4::operator*(const Mat4x4& m) const{
-    return Mat4x4{};
+Mat4x4 Mat4x4::operator*(const Mat4x4 &m) const
+{
+    Mat4x4 out = {};
+    for (int row = 0; row < 4; row++)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            float temp = matrix[row][i];
+            for (int col = 0; col < 4; col++)
+            {
+                out.matrix[row][col] += temp * m.matrix[i][col];
+            }
+        }
+    }
+
+    return out;
 }

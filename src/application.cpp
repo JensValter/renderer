@@ -3,7 +3,7 @@
 #include <iostream>
 #include "mat4x4.h"
 
-bool Application::init(int width, int height)
+bool Application::init(int width, int height, std::string fileName)
 {
     if (!CreateAppWindow(m_window, width, height))
     {
@@ -14,7 +14,7 @@ bool Application::init(int width, int height)
 
     m_projection = Mat4x4::projection(m_window.width,m_window.height, 90.0f ,0.1f , 1000.0f);
 
-    if (!m_object.loadObjectFromFile("Teapot.obj"))
+    if (!m_object.loadObjectFromFile(fileName))
     {
         std::cout << "could not load object\n";
 
@@ -54,7 +54,7 @@ void Application::render()
 {
     m_renderer->clear(0x0);
 
-    Mat4x4 model = Mat4x4::rotationY(m_theta);
+    Mat4x4 model = Mat4x4::rotationY(m_theta) * Mat4x4::translation(0.0f,0.0f ,6.0f) ;
     drawObject(m_object, model);
 
     m_renderer->present();
@@ -72,7 +72,7 @@ void Application::drawObject(const Object& object, const Mat4x4& model)
 
         renderTriangle.matrixMultiply(model);
 
-        renderTriangle.add(0.0f,0.0f,6.0f);
+        //renderTriangle.add(0.0f,0.0f,6.0f);
 
         Vec3 normal = renderTriangle.normal();
         normal.normalizeVector();
