@@ -1,0 +1,29 @@
+#pragma once
+#include "window.h"
+#include "renderer3D.h"
+#include "mat4x4.h"
+#include "object.h"
+#include <memory>
+
+class Application
+{
+public:
+    bool init(int width, int height);
+    int run();
+    
+
+private:
+    void update();
+    void render();
+    void drawObject(const Object& object, const Mat4x4& model);
+
+private:
+    Window m_window = {};
+    std::unique_ptr<Renderer3D> m_renderer;
+    Object m_object;
+
+    Mat4x4 m_projection;
+    Vec3 m_camera_pos = {0.0f, 0.0f, 0.0f};
+
+    float m_theta = 0.0f;
+};

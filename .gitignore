@@ -1,0 +1,6 @@
+.vs/
+build/
+Build/
+*.obj
+misc/
+Misc/
