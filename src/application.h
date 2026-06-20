@@ -23,7 +23,9 @@ private:
     Object m_object;
 
     Mat4x4 m_projection;
-    Vec3 m_camera_pos = {0.0f, 0.0f, 0.0f};
+    Vec3 m_camera = {0.0f, 0.0f, 0.0f};
+    Vec3 m_up = {0.0f, 1.0f, 0.0f};
+    Vec3 m_lookDir= {0,0,1};
 
     float m_theta = 0.0f;
 };
