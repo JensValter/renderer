@@ -1,5 +1,5 @@
 #pragma once
-
+#include "input.h"
 #include <cstdint>
 
 struct Window
@@ -8,7 +8,7 @@ struct Window
 
     int width = 800;
     int height = 600;
-
+    Input input;
     uint32_t* pixels = nullptr;
 };
 

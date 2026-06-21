@@ -8,7 +8,7 @@
 class Application
 {
 public:
-    bool init(int width, int height, std::string fileName);
+    bool init(int width, int height, const std::string& fileName);
     int run();
     
 

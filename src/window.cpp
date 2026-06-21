@@ -1,15 +1,23 @@
 #include "window.h"
-
-#include <windows.h>
 #include <vector>
 
 static std::vector<uint32_t> g_pixels;
-static Window* g_window = nullptr;
+static Window *g_window = nullptr;
+static Input *g_input = nullptr;
 
 static LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 {
     switch (msg)
     {
+    case WM_KEYDOWN:
+        if (g_input)
+            g_input->OnKeyDown((int)wparam);
+        return 0;
+
+    case WM_KEYUP:
+        if (g_input)
+            g_input->OnKeyUp((int)wparam);
+        return 0;
     case WM_DESTROY:
         PostQuitMessage(0);
         return 0;
@@ -18,7 +26,7 @@ static LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lp
     return DefWindowProc(hwnd, msg, wparam, lparam);
 }
 
-bool CreateAppWindow(Window& window, int width, int height)
+bool CreateAppWindow(Window &window, int width, int height)
 {
     g_window = &window;
 
@@ -27,6 +35,8 @@ bool CreateAppWindow(Window& window, int width, int height)
 
     g_pixels.resize(width * height);
     window.pixels = g_pixels.data();
+
+    g_input = &window.input;
 
     HINSTANCE instance = GetModuleHandle(nullptr);
 
@@ -49,8 +59,7 @@ bool CreateAppWindow(Window& window, int width, int height)
         nullptr,
         nullptr,
         instance,
-        nullptr
-    );
+        nullptr);
 
     if (!hwnd)
         return false;
@@ -59,7 +68,7 @@ bool CreateAppWindow(Window& window, int width, int height)
     return true;
 }
 
-void DestroyAppWindow(Window& window)
+void DestroyAppWindow(Window &window)
 {
     if (window.handle)
     {
@@ -77,14 +86,13 @@ bool ProcessWindowMessages()
         if (msg.message == WM_QUIT)
             return false;
 
-        TranslateMessage(&msg);
         DispatchMessage(&msg);
     }
 
     return true;
 }
 
-void PresentWindowBuffer(Window& window)
+void PresentWindowBuffer(Window &window)
 {
     HWND hwnd = (HWND)window.handle;
     HDC dc = GetDC(hwnd);
@@ -110,8 +118,7 @@ void PresentWindowBuffer(Window& window)
         window.pixels,
         &info,
         DIB_RGB_COLORS,
-        SRCCOPY
-    );
+        SRCCOPY);
 
     ReleaseDC(hwnd, dc);
 }

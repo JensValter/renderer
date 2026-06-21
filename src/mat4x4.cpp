@@ -1,7 +1,6 @@
 #include "mat4x4.h"
 #include <cmath>
 
-
 Mat4x4 Mat4x4::identity()
 {
     Mat4x4 out = {};
@@ -85,13 +84,13 @@ Mat4x4 Mat4x4::projection(int screen_width, int screen_height, float fov_degrees
 
 Mat4x4 Mat4x4::view(Vec3 &camera, Vec3 &target, Vec3 &up)
 {
-    Vec3 f = (target-camera);
+    Vec3 f = (target - camera);
     f.normalizeVector();
 
-    Vec3 r = f.crossProduct(up);
+    Vec3 r = up.crossProduct(f);;
     r.normalizeVector();
 
-    Vec3 u = r.crossProduct(f);
+    Vec3 u = f.crossProduct(r);
 
     Mat4x4 out;
 

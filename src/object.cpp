@@ -3,7 +3,7 @@
 #include <sstream>
 
 
-bool Object::loadObjectFromFile(std::string fileName)
+bool Object::loadObjectFromFile(const std::string& fileName)
 {
     std::ifstream stream(fileName);
     if(!stream.is_open()){

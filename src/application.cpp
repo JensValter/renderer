@@ -2,8 +2,9 @@
 #include "rasterMath.h"
 #include <iostream>
 #include "mat4x4.h"
+#include <windows.h>
 
-bool Application::init(int width, int height, std::string fileName)
+bool Application::init(int width, int height, const std::string& fileName)
 {
     if (!CreateAppWindow(m_window, width, height))
     {
@@ -42,13 +43,33 @@ int Application::run()
 
 void Application::update()
 {
+
+     const float moveSpeed = 0.01f;
+
+    if (m_window.input.IsDown(Key::W))
+        m_camera.z += moveSpeed;
+
+    if (m_window.input.IsDown(Key::S))
+        m_camera.z -= moveSpeed;
+
+    if (m_window.input.IsDown(Key::A))
+        m_camera.x -= moveSpeed;
+
+    if (m_window.input.IsDown(Key::D))
+        m_camera.x += moveSpeed;
+
+    if (m_window.input.IsDown(Key::Space))
+        m_camera.y += moveSpeed;
+
+    if (m_window.input.IsDown(Key::Ctrl))
+        m_camera.y -= moveSpeed;
+
+
    // m_theta += 0.001f;
-    //m_camera.z -= 0.001;
-    m_camera.y += 0.001;
-    if (m_theta >= 2.0f * 3.14159f)
-    {
-        m_theta = 0.0f;
-    }
+    // if (m_theta >= 2.0f * 3.14159f)
+    // {
+    //     m_theta = 0.0f;
+    // }
 }
 
 void Application::render()
@@ -68,9 +89,9 @@ void Application::drawObject(const Object& object, const Mat4x4& model)
 {
     Vec3 light_direction = {0.0f, 0.0f, 1.0f};
 
-       Vec3 target = m_camera + m_lookDir;
+    Vec3 target = m_camera + m_lookDir;
 
-      Mat4x4 m = m_projection * Mat4x4::view(m_camera,target, m_up);
+    Mat4x4 m = m_projection * Mat4x4::view(m_camera,target, m_up);
 
     for (const auto& tri : object.m_triangles)
     {
