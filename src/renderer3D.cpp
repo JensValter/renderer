@@ -1,50 +1,45 @@
 #include "renderer3D.h"
+#include "window.h"
 #include <algorithm>
+#include <cmath>
 
-Renderer3D::Renderer3D(Window& window): m_window(window){
-    m_depthBuffer.resize(window.height* window.width);
+Renderer3D::Renderer3D(RenderBuffer target) 
+    : m_width(target.width), m_height(target.height), m_pixels(target.buffer) 
+{
+    m_depthBuffer.resize(m_width * m_height);
 }
 
-void Renderer3D::clear(uint32_t color){
-  for(int i = 0; i<(m_window.height * m_window.width); i++){
-        m_window.buffer[i] = color;
+void Renderer3D::clear(uint32_t color) {
+    for (int i = 0; i < (m_height * m_width); i++) {
+        m_pixels[i] = color;
         m_depthBuffer[i] = 1000.0f;
-  }
+    }
 }
 
-void Renderer3D::drawPixel(int x, int y, float z, uint32_t color){
-    if(x<0 || x >= m_window.width)
+void Renderer3D::drawPixel(int x, int y, float z, uint32_t color) {
+    if (x < 0 || x >= m_width || y < 0 || y >= m_height)
         return;
 
-    if(y<0 || y >= m_window.height)
-        return;
+    int index = y * m_width + x;
 
-
-    int index = y* m_window.width + x;
-
-    if(z < m_depthBuffer[index]){
-        m_window.buffer[index] = color;
+    if (z < m_depthBuffer[index]) {
+        m_pixels[index] = color;
         m_depthBuffer[index] = z;
     }
-
 }
 
 void Renderer3D::drawLine(RasterVertex a, RasterVertex b, uint32_t color)
 {
     int x0 = a.x;
     int y0 = a.y;
-    float z0 = a.z;
     int x1 = b.x;
     int y1 = b.y;
-    float z1 = b.z;
-    
 
     int dx = std::abs(x1 - x0);
     int dy = std::abs(y1 - y0);
 
     int stepX = x0 < x1 ? 1 : -1;
     int stepY = y0 < y1 ? 1 : -1;
-    float stepZ = z0 < z1 ?1.0f :-1.0f;
 
     int error = dx - dy;
 
@@ -71,7 +66,7 @@ void Renderer3D::drawLine(RasterVertex a, RasterVertex b, uint32_t color)
     }
 }
 
-void Renderer3D::drawHorizontalLine(int x0, int x1, int y, float z0, float z1, uint32_t color){
+void Renderer3D::drawHorizontalLine(int x0, int x1, int y, float z0, float z1, uint32_t color) {
     if (x0 == x1) {
         drawPixel(x0, y, z0, color);
         return;
@@ -80,23 +75,19 @@ void Renderer3D::drawHorizontalLine(int x0, int x1, int y, float z0, float z1, u
     float dz = (z1 - z0) / (float)(x1 - x0);
     float z = z0;
 
-    for(int i = x0; i <= x1; i++){
+    for (int i = x0; i <= x1; i++) {
         drawPixel(i, y, z, color);
         z += dz;
     }
 }
 
-void Renderer3D::drawTriangle(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color)
-{
-
-    drawLine(v1,v2,color);
-    drawLine(v2,v3,color);
-    drawLine(v3,v1,color);
-    
+void Renderer3D::drawTriangle(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
+    drawLine(v1, v2, color);
+    drawLine(v2, v3, color);
+    drawLine(v3, v1, color);
 }
 
-void Renderer3D::drawFlatBottom(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color)
-{
+void Renderer3D::drawFlatBottom(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
     float dx_left  = (float)(v2.x - v1.x) / (float)(v2.y - v1.y);
     float dx_right = (float)(v3.x - v1.x) / (float)(v3.y - v1.y);
 
@@ -106,7 +97,7 @@ void Renderer3D::drawFlatBottom(RasterVertex v1, RasterVertex v2, RasterVertex v
     float x_left = v1.x, x_right = v1.x;
     float z_left = v1.z, z_right = v1.z;
 
-    for(int line = v1.y; line <= v2.y; line++){
+    for (int line = v1.y; line <= v2.y; line++) {
         if (x_left <= x_right)
             drawHorizontalLine((int)x_left, (int)x_right, line, z_left, z_right, color);
         else
@@ -119,8 +110,7 @@ void Renderer3D::drawFlatBottom(RasterVertex v1, RasterVertex v2, RasterVertex v
     }
 }
 
-void Renderer3D::drawFlatTop(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color)
-{
+void Renderer3D::drawFlatTop(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
     float dx_left  = (float)(v3.x - v1.x) / (float)(v3.y - v1.y);
     float dx_right = (float)(v3.x - v2.x) / (float)(v3.y - v2.y);
 
@@ -130,7 +120,7 @@ void Renderer3D::drawFlatTop(RasterVertex v1, RasterVertex v2, RasterVertex v3, 
     float x_left = v3.x, x_right = v3.x;
     float z_left = v3.z, z_right = v3.z;
 
-    for(int line = v3.y; line >= v1.y; line--){
+    for (int line = v3.y; line >= v1.y; line--) {
         if (x_left <= x_right)
             drawHorizontalLine((int)x_left, (int)x_right, line, z_left, z_right, color);
         else
@@ -143,8 +133,7 @@ void Renderer3D::drawFlatTop(RasterVertex v1, RasterVertex v2, RasterVertex v3, 
     }
 }
 
-void Renderer3D::drawTriangleFill(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color)
-{
+void Renderer3D::drawTriangleFill(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
     if (v2.y < v1.y) std::swap(v1, v2);
     if (v3.y < v1.y) std::swap(v1, v3);
     if (v3.y < v2.y) std::swap(v2, v3);
@@ -152,19 +141,14 @@ void Renderer3D::drawTriangleFill(RasterVertex v1, RasterVertex v2, RasterVertex
     if (v1.y == v3.y)
         return;
 
-    if(v2.y == v3.y)
-        drawFlatBottom(v1,v2,v3,color);
-
+    if (v2.y == v3.y)
+        drawFlatBottom(v1, v2, v3, color);
     else if (v1.y == v2.y)
-        drawFlatTop(v1,v2,v3,color);
-    
-    else{
+        drawFlatTop(v1, v2, v3, color);
+    else {
         float t = (float)(v2.y - v1.y) / (float)(v3.y - v1.y);
-        RasterVertex v4 = {(int)(v1.x + t * (v3.x - v1.x)), v2.y, v1.z + t * (v3.z - v1.z)};
-        drawFlatBottom(v1,v2,v4,color);
-        drawFlatTop(v2,v4,v3,color);
+        RasterVertex v4 = { (int)(v1.x + t * (v3.x - v1.x)), v2.y, v1.z + t * (v3.z - v1.z) };
+        drawFlatBottom(v1, v2, v4, color);
+        drawFlatTop(v2, v4, v3, color);
     }
-}
-void Renderer3D::present(){
-    m_window.draw();   
 }

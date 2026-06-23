@@ -1,20 +1,25 @@
 #pragma once
-#include <stdint.h>
 #include <string>
+#include <stdint.h>
+
+struct mfb_window;
+
+struct RenderBuffer {
+    int width;
+    int height;
+    uint32_t* buffer;
+};
 
 class Window {
 public:
-    struct mfb_window* window;
     int width;
     int height;
-    bool isRunning = false;
     std::string title;
-    uint32_t* buffer;
-    ~Window(){
-        if(buffer)
-        delete(buffer);
-    }
+    uint32_t* buffer = nullptr;
+    struct mfb_window* window = nullptr;
+    bool isRunning = false;
     bool create(int w, int h, const std::string& t);
-    bool draw();
     void close();
+    bool draw();
+    RenderBuffer getRenderBuffer() const;
 };

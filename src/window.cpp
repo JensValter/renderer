@@ -54,3 +54,7 @@ bool Window::draw(){
     return true;
 }
 
+RenderBuffer Window::getRenderBuffer() const
+{
+     return { width, height, buffer }; 
+}

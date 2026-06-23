@@ -1,21 +1,24 @@
 #pragma once
-#include "window.h"
-#include "rasterMath.h"
 #include <vector>
+#include <stdint.h>
+#include "rasterMath.h"
+
+struct RenderBuffer;
 
 class Renderer3D
 {
 private:
-    Window& m_window;
+    int m_width;
+    int m_height;
+    uint32_t* m_pixels;
     std::vector<float> m_depthBuffer;
 
 public:
-    Renderer3D(Window& window);
+    Renderer3D(RenderBuffer target);
 
     void clear(uint32_t color);
-    void present();
 
-    void drawPixel(int x, int y,float z, uint32_t color);
+    void drawPixel(int x, int y, float z, uint32_t color);
     void drawLine(RasterVertex a, RasterVertex b, uint32_t color);
     void drawHorizontalLine(int x0, int x1, int y, float z0, float z1, uint32_t color);
 

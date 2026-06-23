@@ -2,6 +2,7 @@
 #include "renderer3D.h"
 #include "mat4x4.h"
 #include "object.h"
+#include "window.h"
 #include <memory>
 
 class Application
