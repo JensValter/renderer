@@ -55,8 +55,6 @@ build CMakeFiles/Renderer.dir/src/main.cpp.o: CXX_COMPILER__Renderer_unscanned_D
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/application.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/application.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/application.cpp.o.d
@@ -64,8 +62,6 @@ build CMakeFiles/Renderer.dir/src/application.cpp.o: CXX_COMPILER__Renderer_unsc
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/window.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/window.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/window.cpp.o.d
@@ -73,8 +69,6 @@ build CMakeFiles/Renderer.dir/src/window.cpp.o: CXX_COMPILER__Renderer_unscanned
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/renderer3D.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/renderer3D.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/renderer3D.cpp.o.d
@@ -82,8 +76,6 @@ build CMakeFiles/Renderer.dir/src/renderer3D.cpp.o: CXX_COMPILER__Renderer_unsca
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/rasterMath.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/rasterMath.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/rasterMath.cpp.o.d
@@ -91,8 +83,6 @@ build CMakeFiles/Renderer.dir/src/rasterMath.cpp.o: CXX_COMPILER__Renderer_unsca
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/mat4x4.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/mat4x4.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/mat4x4.cpp.o.d
@@ -100,8 +90,6 @@ build CMakeFiles/Renderer.dir/src/mat4x4.cpp.o: CXX_COMPILER__Renderer_unscanned
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/triangle.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/triangle.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/triangle.cpp.o.d
@@ -109,8 +97,6 @@ build CMakeFiles/Renderer.dir/src/triangle.cpp.o: CXX_COMPILER__Renderer_unscann
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/vec3.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/vec3.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/vec3.cpp.o.d
@@ -118,8 +104,6 @@ build CMakeFiles/Renderer.dir/src/vec3.cpp.o: CXX_COMPILER__Renderer_unscanned_D
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 build CMakeFiles/Renderer.dir/src/object.cpp.o: CXX_COMPILER__Renderer_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/src/object.cpp || cmake_object_order_depends_target_Renderer
   DEP_FILE = CMakeFiles/Renderer.dir/src/object.cpp.o.d
@@ -127,8 +111,6 @@ build CMakeFiles/Renderer.dir/src/object.cpp.o: CXX_COMPILER__Renderer_unscanned
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = CMakeFiles/Renderer.dir
   OBJECT_FILE_DIR = CMakeFiles/Renderer.dir/src
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
-  TARGET_PDB = Renderer.pdb
 
 
 # =============================================================================
@@ -144,9 +126,8 @@ build Renderer: CXX_EXECUTABLE_LINKER__Renderer_Debug CMakeFiles/Renderer.dir/sr
   OBJECT_DIR = CMakeFiles/Renderer.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/Renderer.dir/
   TARGET_FILE = Renderer
-  TARGET_PDB = Renderer.pdb
+  TARGET_PDB = Renderer.dbg
 
 
 #############################################
@@ -234,8 +215,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_common.c.o: C_COMPILE
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 build dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: CXX_COMPILER__minifb_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src/MiniFB_cpp.cpp || cmake_object_order_depends_target_minifb
   DEFINES = -DDEBUG -DUSE_METAL_API -D_DEBUG
@@ -244,8 +223,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o: CXX_COMPIL
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 build dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o: C_COMPILER__minifb_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src/MiniFB_internal.c || cmake_object_order_depends_target_minifb
   DEFINES = -DDEBUG -DUSE_METAL_API -D_DEBUG
@@ -254,8 +231,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_internal.c.o: C_COMPI
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 build dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o: C_COMPILER__minifb_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src/MiniFB_timer.c || cmake_object_order_depends_target_minifb
   DEFINES = -DDEBUG -DUSE_METAL_API -D_DEBUG
@@ -264,8 +239,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_timer.c.o: C_COMPILER
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/OSXViewDelegate.m.o: OBJC_COMPILER__minifb_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src/macos/OSXViewDelegate.m || cmake_object_order_depends_target_minifb
   DEFINES = -DDEBUG -DUSE_METAL_API -D_DEBUG
@@ -274,8 +247,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/OSXViewDelegate.m.o: O
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src/macos
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/MacMiniFB.m.o: OBJC_COMPILER__minifb_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src/macos/MacMiniFB.m || cmake_object_order_depends_target_minifb
   DEFINES = -DDEBUG -DUSE_METAL_API -D_DEBUG
@@ -284,8 +255,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/MacMiniFB.m.o: OBJC_CO
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src/macos
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/OSXWindow.m.o: OBJC_COMPILER__minifb_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src/macos/OSXWindow.m || cmake_object_order_depends_target_minifb
   DEFINES = -DDEBUG -DUSE_METAL_API -D_DEBUG
@@ -294,8 +263,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/OSXWindow.m.o: OBJC_CO
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src/macos
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/OSXView.m.o: OBJC_COMPILER__minifb_unscanned_Debug /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src/macos/OSXView.m || cmake_object_order_depends_target_minifb
   DEFINES = -DDEBUG -DUSE_METAL_API -D_DEBUG
@@ -304,8 +271,6 @@ build dependencies/minifb/CMakeFiles/minifb.dir/src/macos/OSXView.m.o: OBJC_COMP
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/src
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb.dir/src/macos
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
 
 
 # =============================================================================
@@ -321,9 +286,8 @@ build dependencies/minifb/libminifb.a: CXX_STATIC_LIBRARY_LINKER__minifb_Debug d
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb.dir/minifb.pdb
   TARGET_FILE = dependencies/minifb/libminifb.a
-  TARGET_PDB = dependencies/minifb/libminifb.pdb
+  TARGET_PDB = minifb.a.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target minifb_version_info
@@ -341,8 +305,6 @@ build dependencies/minifb/CMakeFiles/minifb_version_info.dir/examples/version_in
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb_version_info.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/minifb_version_info.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb_version_info.dir/
-  TARGET_PDB = dependencies/minifb/minifb_version_info.pdb
 
 
 # =============================================================================
@@ -358,9 +320,8 @@ build dependencies/minifb/minifb_version_info: CXX_EXECUTABLE_LINKER__minifb_ver
   OBJECT_DIR = dependencies/minifb/CMakeFiles/minifb_version_info.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/minifb_version_info.dir/
   TARGET_FILE = dependencies/minifb/minifb_version_info
-  TARGET_PDB = dependencies/minifb/minifb_version_info.pdb
+  TARGET_PDB = minifb_version_info.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target noise
@@ -378,8 +339,6 @@ build dependencies/minifb/CMakeFiles/noise.dir/examples/noise.c.o: C_COMPILER__n
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/noise.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/noise.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/noise.dir/
-  TARGET_PDB = dependencies/minifb/noise.pdb
 
 
 # =============================================================================
@@ -395,9 +354,8 @@ build dependencies/minifb/noise: CXX_EXECUTABLE_LINKER__noise_Debug dependencies
   OBJECT_DIR = dependencies/minifb/CMakeFiles/noise.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/noise.dir/
   TARGET_FILE = dependencies/minifb/noise
-  TARGET_PDB = dependencies/minifb/noise.pdb
+  TARGET_PDB = noise.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target input_events
@@ -415,8 +373,6 @@ build dependencies/minifb/CMakeFiles/input_events.dir/examples/input_events.c.o:
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/input_events.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/input_events.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/input_events.dir/
-  TARGET_PDB = dependencies/minifb/input_events.pdb
 
 
 # =============================================================================
@@ -432,9 +388,8 @@ build dependencies/minifb/input_events: CXX_EXECUTABLE_LINKER__input_events_Debu
   OBJECT_DIR = dependencies/minifb/CMakeFiles/input_events.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/input_events.dir/
   TARGET_FILE = dependencies/minifb/input_events
-  TARGET_PDB = dependencies/minifb/input_events.pdb
+  TARGET_PDB = input_events.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target input_events_cpp
@@ -452,8 +407,6 @@ build dependencies/minifb/CMakeFiles/input_events_cpp.dir/examples/input_events_
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/input_events_cpp.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/input_events_cpp.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/input_events_cpp.dir/
-  TARGET_PDB = dependencies/minifb/input_events_cpp.pdb
 
 
 # =============================================================================
@@ -469,9 +422,8 @@ build dependencies/minifb/input_events_cpp: CXX_EXECUTABLE_LINKER__input_events_
   OBJECT_DIR = dependencies/minifb/CMakeFiles/input_events_cpp.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/input_events_cpp.dir/
   TARGET_FILE = dependencies/minifb/input_events_cpp
-  TARGET_PDB = dependencies/minifb/input_events_cpp.pdb
+  TARGET_PDB = input_events_cpp.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target multiple_windows
@@ -489,8 +441,6 @@ build dependencies/minifb/CMakeFiles/multiple_windows.dir/examples/multiple_wind
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/multiple_windows.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/multiple_windows.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/multiple_windows.dir/
-  TARGET_PDB = dependencies/minifb/multiple_windows.pdb
 
 
 # =============================================================================
@@ -506,9 +456,8 @@ build dependencies/minifb/multiple_windows: CXX_EXECUTABLE_LINKER__multiple_wind
   OBJECT_DIR = dependencies/minifb/CMakeFiles/multiple_windows.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/multiple_windows.dir/
   TARGET_FILE = dependencies/minifb/multiple_windows
-  TARGET_PDB = dependencies/minifb/multiple_windows.pdb
+  TARGET_PDB = multiple_windows.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target hidpi
@@ -526,8 +475,6 @@ build dependencies/minifb/CMakeFiles/hidpi.dir/examples/hidpi.c.o: C_COMPILER__h
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/hidpi.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/hidpi.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/hidpi.dir/
-  TARGET_PDB = dependencies/minifb/hidpi.pdb
 
 
 # =============================================================================
@@ -543,9 +490,8 @@ build dependencies/minifb/hidpi: CXX_EXECUTABLE_LINKER__hidpi_Debug dependencies
   OBJECT_DIR = dependencies/minifb/CMakeFiles/hidpi.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/hidpi.dir/
   TARGET_FILE = dependencies/minifb/hidpi
-  TARGET_PDB = dependencies/minifb/hidpi.pdb
+  TARGET_PDB = hidpi.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target fullscreen
@@ -563,8 +509,6 @@ build dependencies/minifb/CMakeFiles/fullscreen.dir/examples/fullscreen.c.o: C_C
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/fullscreen.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/fullscreen.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/fullscreen.dir/
-  TARGET_PDB = dependencies/minifb/fullscreen.pdb
 
 
 # =============================================================================
@@ -580,9 +524,8 @@ build dependencies/minifb/fullscreen: CXX_EXECUTABLE_LINKER__fullscreen_Debug de
   OBJECT_DIR = dependencies/minifb/CMakeFiles/fullscreen.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/fullscreen.dir/
   TARGET_FILE = dependencies/minifb/fullscreen
-  TARGET_PDB = dependencies/minifb/fullscreen.pdb
+  TARGET_PDB = fullscreen.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target timer
@@ -600,8 +543,6 @@ build dependencies/minifb/CMakeFiles/timer.dir/examples/timer.c.o: C_COMPILER__t
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/timer.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/timer.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/timer.dir/
-  TARGET_PDB = dependencies/minifb/timer.pdb
 
 
 # =============================================================================
@@ -617,9 +558,8 @@ build dependencies/minifb/timer: CXX_EXECUTABLE_LINKER__timer_Debug dependencies
   OBJECT_DIR = dependencies/minifb/CMakeFiles/timer.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/timer.dir/
   TARGET_FILE = dependencies/minifb/timer
-  TARGET_PDB = dependencies/minifb/timer.pdb
+  TARGET_PDB = timer.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target hide_cursor
@@ -637,8 +577,6 @@ build dependencies/minifb/CMakeFiles/hide_cursor.dir/examples/hide_cursor.c.o: C
   INCLUDES = -I/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/generated -I/Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include
   OBJECT_DIR = dependencies/minifb/CMakeFiles/hide_cursor.dir
   OBJECT_FILE_DIR = dependencies/minifb/CMakeFiles/hide_cursor.dir/examples
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/hide_cursor.dir/
-  TARGET_PDB = dependencies/minifb/hide_cursor.pdb
 
 
 # =============================================================================
@@ -654,9 +592,8 @@ build dependencies/minifb/hide_cursor: CXX_EXECUTABLE_LINKER__hide_cursor_Debug 
   OBJECT_DIR = dependencies/minifb/CMakeFiles/hide_cursor.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = dependencies/minifb/CMakeFiles/hide_cursor.dir/
   TARGET_FILE = dependencies/minifb/hide_cursor
-  TARGET_PDB = dependencies/minifb/hide_cursor.pdb
+  TARGET_PDB = hide_cursor.dbg
 
 
 #############################################
@@ -772,14 +709,14 @@ build dependencies/minifb/all: phony dependencies/minifb/libminifb.a dependencie
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCCompilerABI.c /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCompilerIdDetection.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineOBJCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCCompiler.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCCompilerABI.m /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeParseImplicitIncludeInfo.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeParseImplicitLinkInfo.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeParseLibraryArchitecture.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystem.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestCompilerCommon.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestOBJCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CheckLanguage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/ADSP-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/ARMCC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/ARMClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Borland-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Cray-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CrayClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GHS-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/HP-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IAR-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Intel-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/LCC-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/MSVC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/NVHPC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/OrangeC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/PGI-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/PathScale-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SCO-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/TI-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/TIClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Tasking-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Watcom-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XL-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/zOS-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindGit.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin-Determine-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake /Users/jenslardner/rasterizer/renderer/renderer/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb-config.cmake.in /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb_cmake_helpers.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/versioning.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include/minifb_version.h.in CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeOBJCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake dependencies/minifb/CMakeFiles/CheckOBJC/result.cmake
+build build.ninja: RERUN_CMAKE | /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CheckLanguage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindGit.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake /Users/jenslardner/rasterizer/renderer/renderer/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb-config.cmake.in /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb_cmake_helpers.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/versioning.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include/minifb_version.h.in CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeOBJCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCCompiler.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCCompilerABI.c /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXCompiler.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCompilerIdDetection.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineCompilerSupport.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineOBJCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeFindBinUtils.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCCompiler.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCCompilerABI.m /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeParseImplicitIncludeInfo.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeParseImplicitLinkInfo.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeParseLibraryArchitecture.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystem.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestCompilerCommon.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeTestOBJCCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CheckLanguage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/ADSP-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/ARMCC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/ARMClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Borland-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Cray-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CrayClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GHS-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/HP-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IAR-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Intel-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/LCC-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/MSVC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/NVHPC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/OrangeC-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/PGI-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/PathScale-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SCO-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/TI-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/TIClang-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Tasking-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Watcom-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XL-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/zOS-C-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindGit.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/FeatureTesting.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin-Determine-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake /Users/jenslardner/rasterizer/renderer/renderer/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb-config.cmake.in /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb_cmake_helpers.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/versioning.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include/minifb_version.h.in CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeOBJCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake dependencies/minifb/CMakeFiles/CheckOBJC/result.cmake: phony
+build /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/BasicConfigVersion-SameMajorVersion.cmake.in /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeOBJCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CheckLanguage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindGit.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageMessage.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/GNUInstallDirs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-OBJC.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake /Users/jenslardner/rasterizer/renderer/renderer/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/CMakeLists.txt /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb-config.cmake.in /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/minifb_cmake_helpers.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/cmake/versioning.cmake /Users/jenslardner/rasterizer/renderer/renderer/dependencies/minifb/include/minifb_version.h.in CMakeCache.txt CMakeFiles/3.30.5/CMakeCCompiler.cmake CMakeFiles/3.30.5/CMakeCXXCompiler.cmake CMakeFiles/3.30.5/CMakeOBJCCompiler.cmake CMakeFiles/3.30.5/CMakeSystem.cmake: phony
 
 
 #############################################

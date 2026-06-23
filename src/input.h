@@ -1,37 +1,20 @@
 #pragma once
 
-namespace Key
-{
-    constexpr int W = 'W';
-    constexpr int A = 'A';
-    constexpr int S = 'S';
-    constexpr int D = 'D';
+namespace Key {
+    constexpr int W     = 0x57;
+    constexpr int A     = 0x41;
+    constexpr int S     = 0x53;
+    constexpr int D     = 0x44;
     constexpr int Space = 0x20;
-    constexpr int Ctrl  = 0x11;
+    constexpr int LCtrl  = 341;
+
 }
 
+struct Input {
+    bool keys[348] = { false };
 
-struct Input
-{
-    bool keys[256] = {};
-    bool keysPressed[256] = {};
-    bool keysReleased[256] = {};
-
-
-    void OnKeyDown(int vk)
-    {
-        keysPressed[vk] = true;
-        keysReleased[vk] = false;
-        keys[vk] = true;
+    bool IsDown(int key) const {
+        if (key < 0 || key >= 348) return false;
+        return keys[key];
     }
-
-    void OnKeyUp(int vk)
-    {   keysReleased[vk] = true;
-        keysPressed[vk] = false;
-        keys[vk] = false;   
-    }
-
-    bool IsDown(int vk) const      { return keys[vk]; }
-    bool WasPressed(int vk) const  { return keysPressed[vk]; }
-    bool WasReleased(int vk) const { return keysReleased[vk]; }
 };

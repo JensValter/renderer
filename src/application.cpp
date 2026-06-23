@@ -12,7 +12,7 @@ bool Application::init(int width, int height, const std::string& windowTitle, co
     }
 
     m_renderer = std::make_unique<Renderer3D>(m_window.getRenderBuffer());
-    
+
     if (!m_object.loadObjectFromFile(fileName))
     {
         std::cout << "could not load object\n";
@@ -24,22 +24,29 @@ bool Application::init(int width, int height, const std::string& windowTitle, co
     return true;
 }
 
-int Application::run()
-{
-    m_projection = Mat4x4::projection(m_window.width, m_window.height, 90.0f, 0.1f, 1000.0f);
-
-    while (m_window.isRunning) {
-        update();
-        render();
-    }
-
-    m_window.close();
-    return 0;
-}
-
 void Application::update()
 {
-    m_theta += 0.001f;
+    const float moveSpeed = 0.05f;
+
+    if (m_window.input.IsDown(Key::W))
+        m_camera.z += moveSpeed;
+
+    if (m_window.input.IsDown(Key::S))
+        m_camera.z -= moveSpeed;
+
+    if (m_window.input.IsDown(Key::A))
+        m_camera.x -= moveSpeed;
+
+    if (m_window.input.IsDown(Key::D))
+        m_camera.x += moveSpeed;
+
+    if (m_window.input.IsDown(Key::Space))
+        m_camera.y += moveSpeed;
+
+    if (m_window.input.IsDown(Key::LCtrl))
+        m_camera.y -= moveSpeed;
+
+    m_theta += 0.01f;
     if (m_theta >= 2.0f * 3.14159f)
     {
         m_theta = 0.0f;
@@ -86,5 +93,18 @@ void Application::drawObject(const Object& object, const Mat4x4& model)
         RasterVertex p2 = ndcToScreen(renderTriangle.triangle[2], m_window.width, m_window.height);
 
         m_renderer->drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, 0xFFFFFFFF));
+    }  
+}
+
+int Application::run()
+{
+    m_projection = Mat4x4::projection(m_window.width, m_window.height, 90.0f, 0.1f, 1000.0f);
+
+    while (m_window.isRunning) {
+        update();
+        render();
     }
+
+    m_window.close();
+    return 0;
 }

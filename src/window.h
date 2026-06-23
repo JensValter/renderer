@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <stdint.h>
+#include "input.h"
 
-struct mfb_window;
 
 struct RenderBuffer {
     int width;
@@ -17,9 +17,13 @@ public:
     std::string title;
     uint32_t* buffer = nullptr;
     struct mfb_window* window = nullptr;
+    struct mfb_timer* timer = nullptr;
+    int frames = 0;
+    double time = 0.0;
     bool isRunning = false;
     bool create(int w, int h, const std::string& t);
     void close();
     bool draw();
+    Input input;
     RenderBuffer getRenderBuffer() const;
 };

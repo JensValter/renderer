@@ -20,6 +20,7 @@ add_executable(${PROJECT_NAME} src/main.cpp
     src/mat4x4.cpp
     src/vec3.h
     src/triangle.h
+    src/input.h
     src/triangle.cpp
     src/vec3.cpp
     src/object.h
