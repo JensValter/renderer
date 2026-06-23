@@ -1,4 +1,4 @@
-#include "renderer3d.h"
+#include "renderer3D.h"
 #include <algorithm>
 
 Renderer3D::Renderer3D(Window& window): m_window(window){
@@ -7,7 +7,7 @@ Renderer3D::Renderer3D(Window& window): m_window(window){
 
 void Renderer3D::clear(uint32_t color){
   for(int i = 0; i<(m_window.height * m_window.width); i++){
-        m_window.pixels[i] = color;
+        m_window.buffer[i] = color;
         m_depthBuffer[i] = 1000.0f;
   }
 }
@@ -23,7 +23,7 @@ void Renderer3D::drawPixel(int x, int y, float z, uint32_t color){
     int index = y* m_window.width + x;
 
     if(z < m_depthBuffer[index]){
-        m_window.pixels[index] = color;
+        m_window.buffer[index] = color;
         m_depthBuffer[index] = z;
     }
 
@@ -166,5 +166,5 @@ void Renderer3D::drawTriangleFill(RasterVertex v1, RasterVertex v2, RasterVertex
     }
 }
 void Renderer3D::present(){
-    PresentWindowBuffer(m_window);
+    m_window.draw();   
 }

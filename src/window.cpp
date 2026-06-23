@@ -1,124 +1,56 @@
+#include <MiniFB.h>
 #include "window.h"
-#include <vector>
+#include <stdint.h>
+#include <string>
+#include <iostream>
 
-static std::vector<uint32_t> g_pixels;
-static Window *g_window = nullptr;
-static Input *g_input = nullptr;
 
-static LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+bool Window::create(int w, int h, const std::string& t)
 {
-    switch (msg)
-    {
-    case WM_KEYDOWN:
-        if (g_input)
-            g_input->OnKeyDown((int)wparam);
-        return 0;
-
-    case WM_KEYUP:
-        if (g_input)
-            g_input->OnKeyUp((int)wparam);
-        return 0;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        return 0;
-    }
-
-    return DefWindowProc(hwnd, msg, wparam, lparam);
-}
-
-bool CreateAppWindow(Window &window, int width, int height)
-{
-    g_window = &window;
-
-    window.width = width;
-    window.height = height;
-
-    g_pixels.resize(width * height);
-    window.pixels = g_pixels.data();
-
-    g_input = &window.input;
-
-    HINSTANCE instance = GetModuleHandle(nullptr);
-
-    WNDCLASS wc = {};
-    wc.lpfnWndProc = WindowProc;
-    wc.hInstance = instance;
-    wc.lpszClassName = L"MyWindowClass";
-
-    RegisterClass(&wc);
-
-    HWND hwnd = CreateWindowEx(
-        0,
-        wc.lpszClassName,
-        L"Framebuffer Window",
-        WS_OVERLAPPEDWINDOW | WS_VISIBLE,
-        CW_USEDEFAULT,
-        CW_USEDEFAULT,
-        width,
-        height,
-        nullptr,
-        nullptr,
-        instance,
-        nullptr);
-
-    if (!hwnd)
+    width = w;
+    height = h;
+    title = t;
+    isRunning = true;
+    buffer = new uint32_t[width * height];
+    window = mfb_open_ex(title.c_str(), width, height, MFB_WF_RESIZABLE); 
+    if (!window) {
         return false;
-
-    window.handle = hwnd;
+    }
+    mfb_set_target_fps(60);
     return true;
 }
 
-void DestroyAppWindow(Window &window)
-{
-    if (window.handle)
-    {
-        DestroyWindow((HWND)window.handle);
-        window.handle = nullptr;
+void Window::close(){
+    if(window != nullptr) {
+        mfb_close(window);
+        window = nullptr;
+        isRunning = false;
     }
 }
 
-bool ProcessWindowMessages()
-{
-    MSG msg = {};
+bool Window::draw(){
+    static auto lastTime = std::chrono::high_resolution_clock::now();
+    static int frameCount = 0;
 
-    while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
-    {
-        if (msg.message == WM_QUIT)
-            return false;
+    short state = mfb_update_ex(window, buffer, width, height);
+    if (state != MFB_STATE_OK){   
+        this->close();
+        return false;
+    }
 
-        DispatchMessage(&msg);
+    mfb_wait_sync(window);
+
+    frameCount++;
+    auto currentTime = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<float> elapsed = currentTime - lastTime;
+
+    if (elapsed.count() >= 1.0f) {
+        std::string t = title + " fps: " + std::to_string(frameCount);
+        mfb_set_title(window,t.c_str());
+        frameCount = 0;
+        lastTime = currentTime;
     }
 
     return true;
 }
 
-void PresentWindowBuffer(Window &window)
-{
-    HWND hwnd = (HWND)window.handle;
-    HDC dc = GetDC(hwnd);
-
-    BITMAPINFO info = {};
-    info.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-    info.bmiHeader.biWidth = window.width;
-    info.bmiHeader.biHeight = -window.height;
-    info.bmiHeader.biPlanes = 1;
-    info.bmiHeader.biBitCount = 32;
-    info.bmiHeader.biCompression = BI_RGB;
-
-    StretchDIBits(
-        dc,
-        0,
-        0,
-        window.width,
-        window.height,
-        0,
-        0,
-        window.width,
-        window.height,
-        window.pixels,
-        &info,
-        DIB_RGB_COLORS,
-        SRCCOPY);
-
-    ReleaseDC(hwnd, dc);
-}

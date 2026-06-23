@@ -1,5 +1,4 @@
 #pragma once
-#include "window.h"
 #include "renderer3D.h"
 #include "mat4x4.h"
 #include "object.h"
@@ -8,7 +7,7 @@
 class Application
 {
 public:
-    bool init(int width, int height, const std::string& fileName);
+    bool init(int width, int height, const std::string& windowTitle,const std::string& fileName);
     int run();
     
 

@@ -2,24 +2,22 @@
 #include "rasterMath.h"
 #include <iostream>
 #include "mat4x4.h"
-#include <windows.h>
 
-bool Application::init(int width, int height, const std::string& fileName)
+bool Application::init(int width, int height,const std::string& windowTitle, const std::string& fileName)
 {
-    if (!CreateAppWindow(m_window, width, height))
+    m_window = Window();
+    if (!m_window.create(width, height, windowTitle))
     {
         return false;
     }
 
     m_renderer = std::make_unique<Renderer3D>(m_window);
 
-    m_projection = Mat4x4::projection(m_window.width, m_window.height, 90.0f, 0.1f, 1000.0f);
-
     if (!m_object.loadObjectFromFile(fileName))
     {
         std::cout << "could not load object\n";
 
-        DestroyAppWindow(m_window);
+        m_window.close();
         m_renderer.reset();
 
         return false;
@@ -30,13 +28,15 @@ bool Application::init(int width, int height, const std::string& fileName)
 
 int Application::run()
 {
-    while (ProcessWindowMessages())
-    {
-        update();
-        render();
+
+    m_projection = Mat4x4::projection(m_window.width, m_window.height, 90.0f, 0.1f, 1000.0f);
+    
+    while(m_window.isRunning){
+    update();
+    render();
     }
 
-    DestroyAppWindow(m_window);
+    m_window.close();
 
     return 0;
 }
@@ -44,32 +44,32 @@ int Application::run()
 void Application::update()
 {
 
-     const float moveSpeed = 0.01f;
+    //  const float moveSpeed = 0.01f;
 
-    if (m_window.input.IsDown(Key::W))
-        m_camera.z += moveSpeed;
+    // if (m_window.input.IsDown(Key::W))
+    //     m_camera.z += moveSpeed;
 
-    if (m_window.input.IsDown(Key::S))
-        m_camera.z -= moveSpeed;
+    // if (m_window.input.IsDown(Key::S))
+    //     m_camera.z -= moveSpeed;
 
-    if (m_window.input.IsDown(Key::A))
-        m_camera.x -= moveSpeed;
+    // if (m_window.input.IsDown(Key::A))
+    //     m_camera.x -= moveSpeed;
 
-    if (m_window.input.IsDown(Key::D))
-        m_camera.x += moveSpeed;
+    // if (m_window.input.IsDown(Key::D))
+    //     m_camera.x += moveSpeed;
 
-    if (m_window.input.IsDown(Key::Space))
-        m_camera.y += moveSpeed;
+    // if (m_window.input.IsDown(Key::Space))
+    //     m_camera.y += moveSpeed;
 
-    if (m_window.input.IsDown(Key::Ctrl))
-        m_camera.y -= moveSpeed;
+    // if (m_window.input.IsDown(Key::Ctrl))
+    //     m_camera.y -= moveSpeed;
 
 
-   // m_theta += 0.001f;
-    // if (m_theta >= 2.0f * 3.14159f)
-    // {
-    //     m_theta = 0.0f;
-    // }
+   m_theta += 0.001f;
+    if (m_theta >= 2.0f * 3.14159f)
+    {
+        m_theta = 0.0f;
+    }
 }
 
 void Application::render()
@@ -97,7 +97,7 @@ void Application::drawObject(const Object& object, const Mat4x4& model)
     {
         Triangle renderTriangle = tri;
 
-        renderTriangle.matrixMultiply(model);
+       renderTriangle.matrixMultiply(model);
 
         Vec3 normal = renderTriangle.normal();
         normal.normalizeVector();

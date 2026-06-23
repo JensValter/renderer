@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(WinBufferWindow LANGUAGES CXX)
+project(Renderer LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(WinBufferWindow
-    src/main.cpp
+add_subdirectory(dependencies/minifb)
+
+add_executable(${PROJECT_NAME} src/main.cpp
     src/application.h
     src/application.cpp
     src/window.cpp
@@ -25,14 +26,4 @@ add_executable(WinBufferWindow
     src/object.cpp
 )
 
-target_compile_definitions(WinBufferWindow PRIVATE
-    UNICODE
-    _UNICODE
-    WIN32_LEAN_AND_MEAN
-    NOMINMAX
-)
-
-target_link_libraries(WinBufferWindow PRIVATE
-    user32
-    gdi32
-)
+target_link_libraries(${PROJECT_NAME} PRIVATE minifb)

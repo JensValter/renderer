@@ -1,0 +1,185 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "dependencies/minifb",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-dependencies.minifb-Debug-157a10ba62b40d9bf517.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "dependencies/minifb",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Renderer",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "MiniFB",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Renderer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Renderer-Debug-5662f6552bc1fa27d732.json",
+					"name" : "Renderer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "fullscreen::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-fullscreen-Debug-4c47bbc8f1ea6617ae77.json",
+					"name" : "fullscreen",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "hide_cursor::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-hide_cursor-Debug-c1d879dd95a93551d0aa.json",
+					"name" : "hide_cursor",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "hidpi::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-hidpi-Debug-ee553bb72ce1a93c59d4.json",
+					"name" : "hidpi",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "input_events::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-input_events-Debug-179a714e5fd6a7fec520.json",
+					"name" : "input_events",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "input_events_cpp::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-input_events_cpp-Debug-ec2ad34cbcbaf1027663.json",
+					"name" : "input_events_cpp",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "minifb::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-minifb-Debug-c0bf65c563e0a1061af8.json",
+					"name" : "minifb",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "minifb_version_info::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-minifb_version_info-Debug-6f66770928cacdf3837b.json",
+					"name" : "minifb_version_info",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "multiple_windows::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-multiple_windows-Debug-a85d80a8c42a59902154.json",
+					"name" : "multiple_windows",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "noise::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-noise-Debug-989692b6893a32b882df.json",
+					"name" : "noise",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "timer::@35b8128e3b36f36f4f8b",
+					"jsonFile" : "target-timer-Debug-b6e3e342a14d578dd138.json",
+					"name" : "timer",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug",
+		"source" : "/Users/jenslardner/rasterizer/renderer/renderer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

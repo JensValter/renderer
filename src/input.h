@@ -1,7 +1,4 @@
 #pragma once
-#include <windows.h>
-
-
 
 namespace Key
 {
@@ -9,8 +6,8 @@ namespace Key
     constexpr int A = 'A';
     constexpr int S = 'S';
     constexpr int D = 'D';
-    constexpr int Space = VK_SPACE;
-    constexpr int Ctrl  = VK_CONTROL;
+    constexpr int Space = 0x20;
+    constexpr int Ctrl  = 0x11;
 }
 
 

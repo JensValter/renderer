@@ -1,10 +1,12 @@
 #include "application.h"
-
+#include <iostream>
 int main()
 {
     Application application;
 
-    if(!application.init(800,600, "Teapot.obj")){
+    std::cout<<"test"<<'\n';
+
+    if(!application.init(800,600, "Title", "Teapot.obj")){
         return 1;
     }
     application.run();
