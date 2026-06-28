@@ -1,2 +1,0 @@
-/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/CMakeFiles/CheckOBJC/CMakeFiles/edit_cache.dir
-/Users/jenslardner/rasterizer/renderer/renderer/cmake-build-debug/dependencies/minifb/CMakeFiles/CheckOBJC/CMakeFiles/rebuild_cache.dir
