@@ -5,3 +5,5 @@ Build/
 misc/
 Misc/
 out/
+.idea/
+cmake-build-debug/
