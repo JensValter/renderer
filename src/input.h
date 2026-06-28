@@ -12,6 +12,10 @@ namespace Key {
 
 struct Input {
     bool keys[348] = { false };
+    int mouseX = 0;
+    int mouseY = 0;
+    int lastX = 0;
+    int lastY = 0;
 
     bool IsDown(int key) const {
         if (key < 0 || key >= 348) return false;

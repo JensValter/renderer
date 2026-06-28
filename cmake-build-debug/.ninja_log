@@ -18,3 +18,8 @@
 2109	2165	1782226236247497834	CMakeFiles/Renderer.dir/src/vec3.cpp.o	eab067c2ffb649a0
 2155	2201	1782226236293541257	dependencies/minifb/libminifb.a	b354f7cc4e69f7ff
 1	2049	1782226234140139423	dependencies/minifb/CMakeFiles/minifb.dir/src/MiniFB_cpp.cpp.o	7de6fd8dbbf33481
+17	530	1782292104015020315	CMakeFiles/Renderer.dir/src/main.cpp.o	7a721895e3cf65fb
+18	532	1782292104015666094	CMakeFiles/Renderer.dir/src/renderer3D.cpp.o	74035d354760c4b9
+18	585	1782292104015356642	CMakeFiles/Renderer.dir/src/application.cpp.o	236cc5a8f543c484
+18	598	1782292104015521889	CMakeFiles/Renderer.dir/src/window.cpp.o	18873555a605f279
+598	763	1782292104595848180	Renderer	7398b7ba574c4575
