@@ -82,7 +82,7 @@ Mat4x4 Mat4x4::projection(int screen_width, int screen_height, float fov_degrees
     return out;
 }
 
-Mat4x4 Mat4x4::view(Vec3 &camera, Vec3 &target, Vec3 &up)
+Mat4x4 Mat4x4::view(const Vec3 &camera, const Vec3 &target, const Vec3 &up)
 {
     Vec3 f = (target - camera);
     f.normalizeVector();

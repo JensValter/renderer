@@ -3,7 +3,7 @@
 #include <iostream>
 #include "mat4x4.h"
 
-bool Application::init(int width, int height, const std::string& windowTitle, const std::string& fileName)
+bool Application::init(int width, int height, const std::string &windowTitle, const std::string &fileName)
 {
     m_window = Window();
     if (!m_window.create(width, height, windowTitle))
@@ -21,6 +21,8 @@ bool Application::init(int width, int height, const std::string& windowTitle, co
         return false;
     }
 
+    m_camera = Camera();
+
     return true;
 }
 
@@ -28,54 +30,45 @@ void Application::update()
 {
     const float moveSpeed = 0.05f;
 
+    m_camera.processMouseLook(m_window.input.mouseX, m_window.input.mouseY);
+
+    Vec3 forward = m_camera.getLookDirection();
+    Vec3 right = m_camera.getRight();
+
     if (m_window.input.IsDown(Key::W))
-        m_camera.z += moveSpeed;
+        m_camera.camPos += forward * moveSpeed;
 
     if (m_window.input.IsDown(Key::S))
-        m_camera.z -= moveSpeed;
+        m_camera.camPos -= forward * moveSpeed;
 
     if (m_window.input.IsDown(Key::A))
-        m_camera.x -= moveSpeed;
+        m_camera.camPos -= right * moveSpeed;
 
     if (m_window.input.IsDown(Key::D))
-        m_camera.x += moveSpeed;
+        m_camera.camPos += right * moveSpeed;
 
     if (m_window.input.IsDown(Key::Space))
-        m_camera.y += moveSpeed;
+        m_camera.camPos.y += moveSpeed;
 
     if (m_window.input.IsDown(Key::LCtrl))
-        m_camera.y -= moveSpeed;
-
+        m_camera.camPos.y -= moveSpeed;
 
     m_theta += 0.01f;
     if (m_theta >= 2.0f * 3.14159f)
-    {
         m_theta = 0.0f;
-    }
-
-     processMouseLook();
 }
 
 void Application::render()
 {
     m_renderer->clear(0xFF000000);
 
-    Mat4x4 model =
-        Mat4x4::translation(0.0f, 0.0f, 10.0f) *
-        Mat4x4::rotationY(m_theta);
+    Mat4x4 model = Mat4x4::translation(0.0f, 0.0f, 10.0f) * Mat4x4::rotationY(m_theta);
 
-    drawObject(m_object, model);
+    Mat4x4 viewProj = m_camera.getProjectionMatrix(m_window.width, m_window.height) * m_camera.getViewMatrix();
 
-    m_window.draw();
-}
+    Vec3 light_direction = {0.0f, 0.0f, 1.0f};
 
-void Application::drawObject(const Object& object, const Mat4x4& model)
-{
-    Vec3 light_direction = { 0.0f, 0.0f, 1.0f };
-    Vec3 target = m_camera + m_lookDir;
-    Mat4x4 m = m_projection * Mat4x4::view(m_camera, target, m_up);
-
-    for (const auto& tri : object.m_triangles)
+    for (const auto &tri : m_object.m_triangles)
     {
         Triangle renderTriangle = tri;
         renderTriangle.matrixMultiply(model);
@@ -83,56 +76,26 @@ void Application::drawObject(const Object& object, const Mat4x4& model)
         Vec3 normal = renderTriangle.normal();
         normal.normalizeVector();
 
-        if (normal.dotProduct(renderTriangle.toCamera(m_camera)) <= 0.0f)
-        {
+        if (normal.dotProduct(renderTriangle.toCamera(m_camera.camPos)) <= 0.0f)
             continue;
-        }
 
         float dotP = normal.dotProduct(light_direction);
-        renderTriangle.matrixMultiply(m);
+        renderTriangle.matrixMultiply(viewProj);
 
         RasterVertex p0 = ndcToScreen(renderTriangle.triangle[0], m_window.width, m_window.height);
         RasterVertex p1 = ndcToScreen(renderTriangle.triangle[1], m_window.width, m_window.height);
         RasterVertex p2 = ndcToScreen(renderTriangle.triangle[2], m_window.width, m_window.height);
 
         m_renderer->drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, 0xFFFFFFFF));
-    }  
-}
+    }
 
-void Application::processMouseLook()
-{
-    float deltaX = static_cast<float>(m_window.input.mouseX - m_window.input.lastX);
-    float deltaY = static_cast<float>(m_window.input.mouseY - m_window.input.lastY);
-
-    m_lookTheta += deltaX * m_mouseSensitivity;
-    m_lookPhi += deltaY * m_mouseSensitivity;
-
-    updateCameraDirection();
-
-    m_window.input.lastX = m_window.input.mouseX;
-    m_window.input.lastY = m_window.input.mouseY;
-
-}
-
-void Application::updateCameraDirection()
-{
-    constexpr float epsilon = 1.0f;
-    m_lookPhi = std::clamp(m_lookPhi, epsilon, 3.14159265f - epsilon);
-
-    Vec3 direction;
-    direction.z = sinf(m_lookTheta) * sinf(m_lookPhi);
-    direction.x = -(cosf(m_lookTheta) * sinf(m_lookPhi));
-    direction.y = cosf(m_lookPhi);
-
-    direction.normalizeVector();
-    m_lookDir = direction;
+    m_window.draw();
 }
 
 int Application::run()
 {
-    m_projection = Mat4x4::projection(m_window.width, m_window.height, 90.0f, 0.1f, 1000.0f);
-
-    while (m_window.isRunning) {
+    while (m_window.isRunning)
+    {
         update();
         render();
     }

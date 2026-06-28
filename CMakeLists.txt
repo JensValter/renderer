@@ -19,6 +19,7 @@ add_executable(${PROJECT_NAME} src/main.cpp
     src/mat4x4.h
     src/mat4x4.cpp
     src/vec3.h
+    src/camera.cpp
     src/triangle.h
     src/input.h
     src/triangle.cpp

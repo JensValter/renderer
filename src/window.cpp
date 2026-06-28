@@ -12,8 +12,6 @@ bool Window::create(int w, int h, const std::string &t)
     window = mfb_open_ex(title.c_str(), width, height, MFB_WF_RESIZABLE);
     input.mouseX = mfb_get_mouse_x(window);
     input.mouseY= mfb_get_mouse_y(window);
-    input.lastX = input.mouseX;
-    input.lastY = input.mouseY;
     isRunning = true;
     buffer = new uint32_t[width * height];
     if (!window)
@@ -59,7 +57,7 @@ bool Window::draw()
     ++frames;
     if (time >= 1.0)
     {
-        std::string s = title + ", fps: " + std::to_string(frames);
+        std::string s = title + ", fps: " + std::to_string((frames/time)).substr(0,4);
         mfb_set_title(window, s.c_str());
         frames = 0;
         time = 0;
