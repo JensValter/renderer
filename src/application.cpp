@@ -53,6 +53,18 @@ void Application::update()
     if (m_window.input.IsDown(Key::LCtrl))
         m_camera.camPos.y -= moveSpeed;
 
+    if(m_window.input.IsDown(Key::Right))
+        m_camera.setLookTheta(m_camera.getLookTheta() + m_camera.getLookSensitivity());
+
+    if(m_window.input.IsDown(Key::Left))
+        m_camera.setLookTheta(m_camera.getLookTheta() - m_camera.getLookSensitivity());
+
+    if(m_window.input.IsDown(Key::Up))
+        m_camera.setLookPhi(m_camera.getLookPhi() - m_camera.getLookSensitivity());
+
+    if(m_window.input.IsDown(Key::Down))
+        m_camera.setLookPhi(m_camera.getLookPhi() + m_camera.getLookSensitivity());
+
     m_theta += 0.01f;
     if (m_theta >= 2.0f * 3.14159f)
         m_theta = 0.0f;
@@ -60,7 +72,7 @@ void Application::update()
 
 void Application::render()
 {
-    m_renderer->clear(0xFF000000);
+    m_renderer->clear(0x0);
 
     Mat4x4 model = Mat4x4::translation(0.0f, 0.0f, 10.0f) * Mat4x4::rotationY(m_theta);
 
@@ -80,7 +92,7 @@ void Application::render()
             continue;
 
         float dotP = normal.dotProduct(light_direction);
-        renderTriangle.matrixMultiply(viewProj);
+        renderTriangle.applyTransformation(viewProj);
 
         RasterVertex p0 = ndcToScreen(renderTriangle.triangle[0], m_window.width, m_window.height);
         RasterVertex p1 = ndcToScreen(renderTriangle.triangle[1], m_window.width, m_window.height);

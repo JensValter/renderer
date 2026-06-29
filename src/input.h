@@ -7,6 +7,10 @@ namespace Key {
     constexpr int D     = 0x44;
     constexpr int Space = 0x20;
     constexpr int LCtrl  = 341;
+    constexpr int Right = 262;
+    constexpr int Left = 263;
+    constexpr int Down = 264;
+    constexpr int Up = 265;
 
 }
 

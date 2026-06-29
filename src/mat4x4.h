@@ -13,8 +13,8 @@ struct Mat4x4
     static Mat4x4 translation(float x, float y, float z);
     static Mat4x4 projection(int screen_width, int screen_height, float fov_degrees,float near_plane,float far_plane);
     static Mat4x4 view(const Vec3& camera, const Vec3& target, const Vec3& up);
-
     Vec3 vecMultiply(const Vec3& v) const;
+    float getW(const Vec3& v) const;
 
     Mat4x4 operator*(const Mat4x4& m) const;
 };

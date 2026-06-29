@@ -11,9 +11,20 @@ Triangle::Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2)
 
 void Triangle::matrixMultiply(const Mat4x4& mat)
 {
-    triangle[0] = mat.vecMultiply(triangle[0]);
-    triangle[1] = mat.vecMultiply(triangle[1]);
-    triangle[2] = mat.vecMultiply(triangle[2]);
+        for(int i = 0; i<3; i++)
+            triangle[i] = mat.vecMultiply(triangle[i]);
+}
+
+void Triangle::applyTransformation(const Mat4x4& mat)
+{
+        for(int i = 0; i<3; i++){
+            float w = mat.getW(triangle[i]);
+            triangle[i] = mat.vecMultiply(triangle[i]);
+
+            if (w != 0.0f)
+            triangle[i] *= (1.0f / w); 
+        }
+
 }
 
 void Triangle::toNDC(int width, int height)

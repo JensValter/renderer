@@ -29,6 +29,15 @@ Vec3 Vec3::operator*(float value) const
     };
 }
 
+Vec3 Vec3::operator*=(float value)
+{
+    x *= value;
+    y *= value;
+    z *= value;
+    return *this;
+    
+}
+
 float Vec3::dotProduct(const Vec3& v) const
 {
     return x * v.x + y * v.y + z * v.z;

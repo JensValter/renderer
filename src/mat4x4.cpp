@@ -117,21 +117,16 @@ Mat4x4 Mat4x4::view(const Vec3 &camera, const Vec3 &target, const Vec3 &up)
 Vec3 Mat4x4::vecMultiply(const Vec3 &v) const
 {
     Vec3 out;
-
     out.x = matrix[0][0] * v.x + matrix[0][1] * v.y + matrix[0][2] * v.z + matrix[0][3];
     out.y = matrix[1][0] * v.x + matrix[1][1] * v.y + matrix[1][2] * v.z + matrix[1][3];
     out.z = matrix[2][0] * v.x + matrix[2][1] * v.y + matrix[2][2] * v.z + matrix[2][3];
 
-    float w = matrix[3][0] * v.x + matrix[3][1] * v.y + matrix[3][2] * v.z + matrix[3][3];
-
-    if (w != 0.0f)
-    {
-        out.x /= w;
-        out.y /= w;
-        out.z /= w;
-    }
-
     return out;
+}
+
+float Mat4x4::getW(const Vec3& v) const
+{
+   return matrix[3][0] *  v.x + matrix[3][1] * v.y + matrix[3][2] * v.z + matrix[3][3];
 }
 
 Mat4x4 Mat4x4::operator*(const Mat4x4 &m) const

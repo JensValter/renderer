@@ -2,6 +2,30 @@
 #include <cmath>
 #include "algorithm"
 
+void Camera::setLookTheta(float theta)
+{
+    m_lookTheta = theta;
+}
+
+void Camera::setLookPhi(float phi)
+{
+    m_lookPhi = phi;
+}
+
+float Camera::getLookTheta() const
+{
+    return m_lookTheta;
+}
+
+float Camera::getLookPhi() const
+{
+    return m_lookPhi;
+}
+
+float Camera::getLookSensitivity() const
+{
+    return m_lookSensitivity;
+}
 
 Vec3 Camera::getUp() const
 {
@@ -57,7 +81,7 @@ void Camera::processMouseLook(int mouseX, int mouseY)
 
 void Camera::updateCameraDirection()
 {
-     constexpr float epsilon = 1.0f;
+     constexpr float epsilon = 0.01f;
     m_lookPhi = std::clamp(m_lookPhi, epsilon, 3.14159265f - epsilon);
 
     Vec3 direction;

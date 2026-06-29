@@ -10,6 +10,7 @@ public:
     Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2);
 
     void matrixMultiply(const Mat4x4& mat);
+    void applyTransformation(const Mat4x4& mat);
     void toNDC(int width, int height);
     void add(float x, float y, float z);
 

@@ -9,6 +9,7 @@ struct Vec3
     Vec3 operator+(const Vec3& v) const;
     Vec3 operator-(const Vec3& v) const;
     Vec3 operator*(float value) const;
+    Vec3 operator *= (float value);
     Vec3& operator+=(const Vec3& v);
     Vec3& operator-=(const Vec3& v);
 

@@ -4,6 +4,7 @@
 #include "vec3.h"
 
 class Camera{
+    float m_lookSensitivity = 0.01f;
     Vec3 m_up = {0.0f, 1.0f, 0.0f};
     Vec3 m_lookDir= {0,0,1};
     float m_mouseSensitivity = 0.001f;
@@ -17,6 +18,11 @@ class Camera{
 
     public:
     Vec3 camPos = {0.0f, 0.0f, 0.0f};
+    void setLookTheta(float theta);
+    void setLookPhi(float phi);
+    float getLookTheta() const;
+    float getLookPhi()const;
+    float getLookSensitivity() const;
     Vec3 getUp() const;
     Vec3 getRight() const;
     Vec3 getLookDirection() const;

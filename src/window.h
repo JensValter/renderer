@@ -11,6 +11,8 @@ struct RenderBuffer {
 };
 
 class Window {
+    private:
+     void* m_window = nullptr;
 public:
     int width;
     int height;
