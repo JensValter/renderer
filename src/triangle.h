@@ -16,7 +16,6 @@ public:
 
     Vec3 normal() const;
     Vec3 toCamera(const Vec3& camera_pos) const;
-
-public:
+    static int planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &in_t, Triangle & out_t1, Triangle &out_t2);
     Vec3 triangle[3];
 };

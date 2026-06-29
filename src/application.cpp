@@ -1,6 +1,7 @@
 #include "application.h"
 #include "rasterMath.h"
 #include <iostream>
+#include "triangle.h"
 #include "mat4x4.h"
 
 bool Application::init(int width, int height, const std::string &windowTitle, const std::string &fileName)
@@ -76,7 +77,8 @@ void Application::render()
 
     Mat4x4 model = Mat4x4::translation(0.0f, 0.0f, 10.0f) * Mat4x4::rotationY(m_theta);
 
-    Mat4x4 viewProj = m_camera.getProjectionMatrix(m_window.width, m_window.height) * m_camera.getViewMatrix();
+    Mat4x4 view = m_camera.getViewMatrix();
+    Mat4x4 proj = m_camera.getProjectionMatrix(m_window.width, m_window.height);
 
     Vec3 light_direction = {0.0f, 0.0f, 1.0f};
 
@@ -92,13 +94,28 @@ void Application::render()
             continue;
 
         float dotP = normal.dotProduct(light_direction);
-        renderTriangle.applyTransformation(viewProj);
+        renderTriangle.applyTransformation(view);
 
-        RasterVertex p0 = ndcToScreen(renderTriangle.triangle[0], m_window.width, m_window.height);
-        RasterVertex p1 = ndcToScreen(renderTriangle.triangle[1], m_window.width, m_window.height);
-        RasterVertex p2 = ndcToScreen(renderTriangle.triangle[2], m_window.width, m_window.height);
+        Triangle clipped[2];
+        Vec3 p = {0.0f, 0.0f, 0.1f};
+        Vec3 n = {0.0f, 0.0f, 1.0f};
+        int clippedTriangles = Triangle::planeClipping(p, n, renderTriangle, clipped[0], clipped[1]);  
 
-        m_renderer->drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, 0xFFFFFFFF));
+        for(int i = 0; i<clippedTriangles; i++){
+            Triangle projectedTriangle = clipped[i];
+
+            projectedTriangle.applyTransformation(proj);
+
+            RasterVertex p0 = ndcToScreen(projectedTriangle.triangle[0], m_window.width, m_window.height);
+            RasterVertex p1 = ndcToScreen(projectedTriangle.triangle[1], m_window.width, m_window.height);
+            RasterVertex p2 = ndcToScreen(projectedTriangle.triangle[2], m_window.width, m_window.height);
+
+            int color = 0xFFFFFFFF;
+            if(clippedTriangles == 2)
+                color = 0x000000FF;
+
+            m_renderer->drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, color));
+        }
     }
 
     m_window.draw();

@@ -36,20 +36,12 @@ void Triangle::toNDC(int width, int height)
 
 void Triangle::add(float x, float y, float z)
 {
-    triangle[0].x += x;
-    triangle[0].y += y;
-    triangle[0].z += z;
-
-    triangle[1].x += x;
-    triangle[1].y += y;
-    triangle[1].z += z;
-
-    triangle[2].x += x;
-    triangle[2].y += y;
-    triangle[2].z += z;
+    for(Vec3 v: triangle){
+        v.x += x;
+        v.y += y;
+        v.z += z;
+    }
 }
-
-
 
 Vec3 Triangle::normal() const
 {
@@ -59,6 +51,65 @@ Vec3 Triangle::normal() const
     Vec3 out = line1.crossProduct(line2);
 
     return out;
+}
+
+int Triangle::planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &in_t, Triangle &out_t1, Triangle &out_t2)
+{
+    Vec3 normal = n;
+    normal.normalizeVector();
+
+    auto distance = [&](const Vec3 &p)
+    {
+        return normal.dotProduct(p - p0);
+    };
+
+    Vec3* inside_points[3]; 
+    int insidePointCount = 0;
+
+    Vec3* outside_points[3];
+    int outsidePointsCount = 0;
+
+    for(int i = 0; i<3; i++){
+        float dist = distance(in_t.triangle[i]);
+        dist >= 0 ? inside_points[insidePointCount++] = &in_t.triangle[i] : outside_points[outsidePointsCount++] = &in_t.triangle[i];
+    }
+
+    if(insidePointCount == 0){
+        return 0;
+    }
+
+    else if(insidePointCount == 3){
+        out_t1 = in_t;
+        return 1;
+    }
+
+    else if(insidePointCount == 1){
+        out_t1.triangle[0] = *inside_points[0];
+
+        out_t1.triangle[1] = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0]);
+
+        out_t1.triangle[2] = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[1]);
+
+        return 1;
+    }
+
+    else if(insidePointCount == 2){
+        Vec3 intersect1 = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0]);
+
+        Vec3 intersect2 = Vec3::vecPlanIntersect(p0, normal, *inside_points[1], *outside_points[0]);
+
+        out_t1.triangle[0] = *inside_points[0];
+        out_t1.triangle[1] = *inside_points[1];
+        out_t1.triangle[2] = intersect1;
+
+        out_t2.triangle[0] = *inside_points[1];
+        out_t2.triangle[1] = intersect2;
+        out_t2.triangle[2] = intersect1;
+
+        return 2;
+    }
+
+    return 0;
 }
 
 Vec3 Triangle::toCamera(const Vec3& camera_pos) const

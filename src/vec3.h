@@ -10,11 +10,14 @@ struct Vec3
     Vec3 operator-(const Vec3& v) const;
     Vec3 operator*(float value) const;
     Vec3 operator *= (float value);
+    static Vec3 vecPlanIntersect(const Vec3 & p0, const Vec3 & n, const Vec3 &start, const Vec3 & end);
     Vec3& operator+=(const Vec3& v);
     Vec3& operator-=(const Vec3& v);
+    
 
     float dotProduct(const Vec3& v) const;
     Vec3 crossProduct(const Vec3& v) const;
+
 
     void normalizeVector();
     
