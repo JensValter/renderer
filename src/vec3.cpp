@@ -20,6 +20,7 @@ Vec3 Vec3::operator-(const Vec3& v) const
     };
 }
 
+
 Vec3 Vec3::operator*(float value) const
 {
 
@@ -66,6 +67,11 @@ Vec3 Vec3::crossProduct(const Vec3& v) const
         (z * v.x) - (x * v.z),
         (x * v.y) - (y * v.x)
     };
+}
+
+float Vec3::distanceToPlane(const Vec3& normal, const Vec3 &p, const Vec3 &p0)
+{
+    return normal.dotProduct(p-p0);
 }
 
 void Vec3::normalizeVector()

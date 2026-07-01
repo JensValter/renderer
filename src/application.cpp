@@ -54,16 +54,16 @@ void Application::update()
     if (m_window.input.IsDown(Key::LCtrl))
         m_camera.camPos.y -= moveSpeed;
 
-    if(m_window.input.IsDown(Key::Right))
+    if (m_window.input.IsDown(Key::Right))
         m_camera.setLookTheta(m_camera.getLookTheta() + m_camera.getLookSensitivity());
 
-    if(m_window.input.IsDown(Key::Left))
+    if (m_window.input.IsDown(Key::Left))
         m_camera.setLookTheta(m_camera.getLookTheta() - m_camera.getLookSensitivity());
 
-    if(m_window.input.IsDown(Key::Up))
+    if (m_window.input.IsDown(Key::Up))
         m_camera.setLookPhi(m_camera.getLookPhi() - m_camera.getLookSensitivity());
 
-    if(m_window.input.IsDown(Key::Down))
+    if (m_window.input.IsDown(Key::Down))
         m_camera.setLookPhi(m_camera.getLookPhi() + m_camera.getLookSensitivity());
 
     m_theta += 0.01f;
@@ -94,32 +94,37 @@ void Application::render()
             continue;
 
         float dotP = normal.dotProduct(light_direction);
-        renderTriangle.applyTransformation(view);
+        renderTriangle.matrixMultiply(view);
 
-        Triangle clipped[2];
-        Vec3 p = {0.0f, 0.0f, 0.1f};
-        Vec3 n = {0.0f, 0.0f, 1.0f};
-        int clippedTriangles = Triangle::planeClipping(p, n, renderTriangle, clipped[0], clipped[1]);  
+        std::vector<Triangle> nearPlaneClippedTriangles;
+        Triangle::planeClipping({0.0f, 0.0f, 0.1f}, {0.0f, 0.0f, 1.0f}, renderTriangle, nearPlaneClippedTriangles); // Clipping against near plane
 
-        for(int i = 0; i<clippedTriangles; i++){
-            Triangle projectedTriangle = clipped[i];
+        int color = 0xFFFFFFFF;
+        if (nearPlaneClippedTriangles.size() == 2)
+            color = 0x000000FF;
 
-            projectedTriangle.applyTransformation(proj);
+        
+        std::vector<Triangle> ndcClippedTriangles;
+        for (Triangle nearTri : nearPlaneClippedTriangles)
+        {
+            nearTri.applyTransformation(proj);
+            Triangle::ndcClipping(nearTri,ndcClippedTriangles);
+        }
 
-            RasterVertex p0 = ndcToScreen(projectedTriangle.triangle[0], m_window.width, m_window.height);
-            RasterVertex p1 = ndcToScreen(projectedTriangle.triangle[1], m_window.width, m_window.height);
-            RasterVertex p2 = ndcToScreen(projectedTriangle.triangle[2], m_window.width, m_window.height);
-
-            int color = 0xFFFFFFFF;
-            if(clippedTriangles == 2)
-                color = 0x000000FF;
+          for (const Triangle& clippedTri : ndcClippedTriangles)
+        {
+            RasterVertex p0 = ndcToScreen(clippedTri.triangle[0], m_window.width, m_window.height);
+            RasterVertex p1 = ndcToScreen(clippedTri.triangle[1], m_window.width, m_window.height);
+            RasterVertex p2 = ndcToScreen(clippedTri.triangle[2], m_window.width, m_window.height);
 
             m_renderer->drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, color));
         }
     }
-
+    
     m_window.draw();
 }
+
+
 
 int Application::run()
 {

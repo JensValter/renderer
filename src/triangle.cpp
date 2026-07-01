@@ -2,6 +2,7 @@
 #include "mat4x4.h"
 #include "rasterMath.h"
 
+
 Triangle::Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2)
 {
     triangle[0] = v0;
@@ -53,15 +54,43 @@ Vec3 Triangle::normal() const
     return out;
 }
 
-int Triangle::planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &in_t, Triangle &out_t1, Triangle &out_t2)
+
+Vec3 Triangle::toCamera(const Vec3& camera_pos) const
 {
+    return camera_pos - triangle[0];
+}
+
+//need to reduce heap allocations, make them static or something
+void Triangle::ndcClipping(Triangle t, std::vector<Triangle>& out)
+{
+    std::vector<Triangle> current;
+    std::vector<Triangle> next;
+    current.push_back(t);
+
+    for (int i = 0; i < 4; i++)
+    {
+        Vec3 n;
+        switch(i){
+            case 0: n = {1.0f, 0.0f, 0.0f}; break; // left
+            case 1: n = {-1.0f, 0.0f, 0.0f}; break; // right
+            case 2: n = {0.0f, 1.0f, 0.0f}; break; // bottom
+            case 3: n = {0.0f, -1.0f, 0.0f}; break; //top
+        }
+
+        next.clear();
+        for (Triangle& tri : current)
+            planeClipping(n * (-1.0f), n, tri, next);
+
+        std::swap(current, next);
+    }
+
+    out.insert(out.end(), current.begin(), current.end());
+}
+
+void Triangle::planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &t, std::vector<Triangle>& out)
+{   
     Vec3 normal = n;
     normal.normalizeVector();
-
-    auto distance = [&](const Vec3 &p)
-    {
-        return normal.dotProduct(p - p0);
-    };
 
     Vec3* inside_points[3]; 
     int insidePointCount = 0;
@@ -70,49 +99,28 @@ int Triangle::planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &in_t, Trian
     int outsidePointsCount = 0;
 
     for(int i = 0; i<3; i++){
-        float dist = distance(in_t.triangle[i]);
-        dist >= 0 ? inside_points[insidePointCount++] = &in_t.triangle[i] : outside_points[outsidePointsCount++] = &in_t.triangle[i];
+        float dist = Vec3::distanceToPlane(normal,t.triangle[i],p0);
+        dist >= 0 ? inside_points[insidePointCount++] = &t.triangle[i] : outside_points[outsidePointsCount++] = &t.triangle[i];
     }
 
-    if(insidePointCount == 0){
-        return 0;
-    }
+    if(insidePointCount == 0);
 
     else if(insidePointCount == 3){
-        out_t1 = in_t;
-        return 1;
+        out.push_back(t);
     }
 
     else if(insidePointCount == 1){
-        out_t1.triangle[0] = *inside_points[0];
-
-        out_t1.triangle[1] = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0]);
-
-        out_t1.triangle[2] = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[1]);
-
-        return 1;
+            out.push_back({*inside_points[0], Vec3::vecPlanIntersect(
+            p0, normal, *inside_points[0], *outside_points[0]),Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[1])});
     }
 
     else if(insidePointCount == 2){
+
         Vec3 intersect1 = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0]);
 
         Vec3 intersect2 = Vec3::vecPlanIntersect(p0, normal, *inside_points[1], *outside_points[0]);
 
-        out_t1.triangle[0] = *inside_points[0];
-        out_t1.triangle[1] = *inside_points[1];
-        out_t1.triangle[2] = intersect1;
-
-        out_t2.triangle[0] = *inside_points[1];
-        out_t2.triangle[1] = intersect2;
-        out_t2.triangle[2] = intersect1;
-
-        return 2;
+        out.push_back({*inside_points[0],*inside_points[1], intersect1});
+        out.push_back({*inside_points[1], intersect2, intersect1});
     }
-
-    return 0;
-}
-
-Vec3 Triangle::toCamera(const Vec3& camera_pos) const
-{
-    return camera_pos - triangle[0];
 }

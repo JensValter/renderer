@@ -1,5 +1,6 @@
 #pragma once
 #include "vec3.h"
+#include <vector>
 
 struct Mat4x4;
 
@@ -16,6 +17,9 @@ public:
 
     Vec3 normal() const;
     Vec3 toCamera(const Vec3& camera_pos) const;
-    static int planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &in_t, Triangle & out_t1, Triangle &out_t2);
+    static void planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &t, std::vector<Triangle>& out);
+    static void ndcClipping(Triangle t,std::vector<Triangle>& out);
+
     Vec3 triangle[3];
 };
+

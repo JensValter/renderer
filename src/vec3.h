@@ -18,6 +18,8 @@ struct Vec3
     float dotProduct(const Vec3& v) const;
     Vec3 crossProduct(const Vec3& v) const;
 
+    static float distanceToPlane(const Vec3& normal, const Vec3 &p, const Vec3& p0);
+
 
     void normalizeVector();
     

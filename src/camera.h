@@ -1,5 +1,6 @@
 #pragma once
 #include "input.h"
+#include <array>
 #include "mat4x4.h"
 #include "vec3.h"
 
