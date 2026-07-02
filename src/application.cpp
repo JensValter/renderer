@@ -74,56 +74,17 @@ void Application::update()
 void Application::render()
 {
     m_renderer->clear(0x0);
-
     Mat4x4 model = Mat4x4::translation(0.0f, 0.0f, 10.0f) * Mat4x4::rotationY(m_theta);
-
     Mat4x4 view = m_camera.getViewMatrix();
     Mat4x4 proj = m_camera.getProjectionMatrix(m_window.width, m_window.height);
-
     Vec3 light_direction = {0.0f, 0.0f, 1.0f};
 
-    for (const auto &tri : m_object.m_triangles)
+    for (const auto& tri : m_object.m_triangles)
     {
-        Triangle renderTriangle = tri;
-        renderTriangle.matrixMultiply(model);
-
-        Vec3 normal = renderTriangle.normal();
-        normal.normalizeVector();
-
-        if (normal.dotProduct(renderTriangle.toCamera(m_camera.camPos)) <= 0.0f)
-            continue;
-
-        float dotP = normal.dotProduct(light_direction);
-        renderTriangle.matrixMultiply(view);
-
-        std::vector<Triangle> nearPlaneClippedTriangles;
-        Triangle::planeClipping({0.0f, 0.0f, 0.1f}, {0.0f, 0.0f, 1.0f}, renderTriangle, nearPlaneClippedTriangles); // Clipping against near plane
-
-        int color = 0xFFFFFFFF;
-        if (nearPlaneClippedTriangles.size() == 2)
-            color = 0x000000FF;
-
-        
-        std::vector<Triangle> ndcClippedTriangles;
-        for (Triangle nearTri : nearPlaneClippedTriangles)
-        {
-            nearTri.applyTransformation(proj);
-            Triangle::ndcClipping(nearTri,ndcClippedTriangles);
-        }
-
-          for (const Triangle& clippedTri : ndcClippedTriangles)
-        {
-            RasterVertex p0 = ndcToScreen(clippedTri.triangle[0], m_window.width, m_window.height);
-            RasterVertex p1 = ndcToScreen(clippedTri.triangle[1], m_window.width, m_window.height);
-            RasterVertex p2 = ndcToScreen(clippedTri.triangle[2], m_window.width, m_window.height);
-
-            m_renderer->drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, color));
-        }
+        m_renderer->drawTriangle(tri,model , view, proj, m_camera.camPos, light_direction, m_window.width, m_window.height);
     }
-    
     m_window.draw();
 }
-
 
 
 int Application::run()

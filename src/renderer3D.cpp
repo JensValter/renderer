@@ -1,4 +1,5 @@
 #include "renderer3D.h"
+#include "triangle.h"
 #include "window.h"
 #include <algorithm>
 #include <cmath>
@@ -7,6 +8,8 @@ Renderer3D::Renderer3D(RenderBuffer target)
     : m_width(target.width), m_height(target.height), m_pixels(target.buffer) 
 {
     m_depthBuffer.resize(m_width * m_height);
+    m_clipInput.reserve(16);
+    m_clipOutput.reserve(16);
 }
 
 void Renderer3D::clear(uint32_t color) {
@@ -81,10 +84,50 @@ void Renderer3D::drawHorizontalLine(int x0, int x1, int y, float z0, float z1, u
     }
 }
 
-void Renderer3D::drawTriangle(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
+void Renderer3D::drawTriangleOutline(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
     drawLine(v1, v2, color);
     drawLine(v2, v3, color);
     drawLine(v3, v1, color);
+}
+
+
+void Renderer3D::drawTriangle(const Triangle& triangle, const Mat4x4& model, const Mat4x4& view, const Mat4x4& proj,
+                               const Vec3& camPos, const Vec3& lightDir, int width, int height)
+{
+    //from local to world coordinates
+    Triangle tri = triangle;
+    tri.matrixMultiply(model);
+    
+    // backface culling
+    Vec3 normal = tri.normal();
+    normal.normalizeVector();
+    if (normal.dotProduct(tri.toCamera(camPos)) <= 0.0f)
+        return;
+
+    float dotP = normal.dotProduct(lightDir);
+
+    
+    tri.matrixMultiply(view);
+
+    // near plane clipping
+    m_nearPlaneClipped.clear();
+    planeClipping({0.0f, 0.0f, 0.1f}, {0.0f, 0.0f, 1.0f}, tri, m_nearPlaneClipped);
+
+    // screen edge clipping
+    m_ndcClipped.clear();
+    for (Triangle nearTri : m_nearPlaneClipped)
+    {
+        nearTri.applyTransformation(proj);
+        ndcClipping(nearTri, m_ndcClipped);
+    }
+
+    for (const Triangle& clippedTri : m_ndcClipped)
+    {
+        RasterVertex p0 = ndcToScreen(clippedTri.triangle[0], width, height);
+        RasterVertex p1 = ndcToScreen(clippedTri.triangle[1], width, height);
+        RasterVertex p2 = ndcToScreen(clippedTri.triangle[2], width, height);
+        drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, 0xFFFFFFFF));
+    }
 }
 
 void Renderer3D::drawFlatBottom(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
@@ -132,6 +175,73 @@ void Renderer3D::drawFlatTop(RasterVertex v1, RasterVertex v2, RasterVertex v3, 
         z_right -= dz_right;
     }
 }
+
+
+
+//important to keep number of heap allocations low!!
+void Renderer3D::ndcClipping(Triangle t, std::vector<Triangle>& out)
+{
+    m_clipInput.clear();
+    m_clipInput.push_back(t);
+
+    for (int i = 0; i < 4; i++)
+    {
+        Vec3 n;
+        switch(i){
+            case 0: n = {1.0f, 0.0f, 0.0f}; break; // left
+            case 1: n = {-1.0f, 0.0f, 0.0f}; break; // right
+            case 2: n = {0.0f, 1.0f, 0.0f}; break; // bottom
+            case 3: n = {0.0f, -1.0f, 0.0f}; break; //top
+        }
+
+        m_clipOutput.clear();
+        for (Triangle& tri : m_clipInput)
+            planeClipping(n * (-1.0f), n, tri, m_clipOutput);
+
+        std::swap(m_clipInput, m_clipOutput);
+    }
+
+    out.insert(out.end(), m_clipInput.begin(), m_clipInput.end());
+}
+
+void Renderer3D::planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &t, std::vector<Triangle>& out)
+{   
+    Vec3 normal = n;
+    normal.normalizeVector();
+
+    Vec3* inside_points[3]; 
+    int insidePointCount = 0;
+
+    Vec3* outside_points[3];
+    int outsidePointsCount = 0;
+
+    for(int i = 0; i<3; i++){
+        float dist = Vec3::distanceToPlane(normal,t.triangle[i],p0);
+        dist >= 0 ? inside_points[insidePointCount++] = &t.triangle[i] : outside_points[outsidePointsCount++] = &t.triangle[i];
+    }
+
+    if(insidePointCount == 0);
+
+    else if(insidePointCount == 3){
+        out.push_back(t);
+    }
+
+    else if(insidePointCount == 1){
+            out.push_back({*inside_points[0], Vec3::vecPlanIntersect(
+            p0, normal, *inside_points[0], *outside_points[0]),Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[1])});
+    }
+
+    else if(insidePointCount == 2){
+
+        Vec3 intersect1 = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0]);
+
+        Vec3 intersect2 = Vec3::vecPlanIntersect(p0, normal, *inside_points[1], *outside_points[0]);
+
+        out.push_back({*inside_points[0],*inside_points[1], intersect1});
+        out.push_back({*inside_points[1], intersect2, intersect1});
+    }
+}
+
 
 void Renderer3D::drawTriangleFill(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
     if (v2.y < v1.y) std::swap(v1, v2);

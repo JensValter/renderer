@@ -17,9 +17,7 @@ public:
 
     Vec3 normal() const;
     Vec3 toCamera(const Vec3& camera_pos) const;
-    static void planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &t, std::vector<Triangle>& out);
-    static void ndcClipping(Triangle t,std::vector<Triangle>& out);
-
+    
     Vec3 triangle[3];
 };
 
