@@ -1,4 +1,5 @@
 #include "renderer3D.h"
+#include "rasterMath.h"
 #include "triangle.h"
 #include "window.h"
 #include <algorithm>
@@ -96,6 +97,8 @@ void Renderer3D::drawTriangle(const Triangle& triangle, const Mat4x4& model, con
 {
     //from local to world coordinates
     Triangle tri = triangle;
+    tri.color = 0xFFFFFFFF;
+
     tri.matrixMultiply(model);
     
     // backface culling
@@ -104,9 +107,8 @@ void Renderer3D::drawTriangle(const Triangle& triangle, const Mat4x4& model, con
     if (normal.dotProduct(tri.toCamera(camPos)) <= 0.0f)
         return;
 
+    //calculate brightness based on light direction
     float dotP = normal.dotProduct(lightDir);
-
-    
     tri.matrixMultiply(view);
 
     // near plane clipping
@@ -126,7 +128,7 @@ void Renderer3D::drawTriangle(const Triangle& triangle, const Mat4x4& model, con
         RasterVertex p0 = ndcToScreen(clippedTri.triangle[0], width, height);
         RasterVertex p1 = ndcToScreen(clippedTri.triangle[1], width, height);
         RasterVertex p2 = ndcToScreen(clippedTri.triangle[2], width, height);
-        drawTriangleFill(p0, p1, p2, brightnessModifier(dotP, 0xFFFFFFFF));
+        drawTriangleFill(p0, p1, p2, brightnessModifier(dotP,tri.color));
     }
 }
 
