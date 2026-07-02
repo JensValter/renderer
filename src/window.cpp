@@ -18,13 +18,19 @@ bool Window::create(int w, int h, const std::string &t)
     {
         return false;
     }
-    mfb_set_target_fps(60);
+    mfb_set_target_fps(60); 
     mfb_set_user_data(window, this);
     mfb_set_mouse_move_callback(window, [](struct mfb_window *window, int x, int y){
         Window* myWindow = (Window*)mfb_get_user_data(window);
         myWindow->input.mouseX = x;
         myWindow->input.mouseY = y;
     });
+
+  mfb_set_resize_callback(window, [](struct mfb_window *window, int newWidth, int newHeight){
+        Window* myWindow = (Window*)mfb_get_user_data(window);
+        mfb_set_viewport_best_fit(window, myWindow->logicalWidth, myWindow->logicalHeight);
+    });
+    
     mfb_set_keyboard_callback([](struct mfb_window *window, mfb_key key, mfb_key_mod mod, bool is_pressed){
        Window* myWindow = (Window*)mfb_get_user_data(window);
        myWindow->input.keys[(int)key] = is_pressed; }, window);

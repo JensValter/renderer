@@ -16,6 +16,8 @@ class Window {
 public:
     int width;
     int height;
+    int logicalWidth;
+    int logicalHeight;
     std::string title;
     uint32_t* buffer = nullptr;
     struct mfb_window* window = nullptr;
