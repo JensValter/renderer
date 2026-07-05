@@ -21,5 +21,6 @@ public:
     Vec3 triangle[3];
     Vec2 tex[3];
     uint32_t color;
+    bool hasTexture;
 };
 

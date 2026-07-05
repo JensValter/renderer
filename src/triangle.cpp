@@ -8,6 +8,8 @@ Triangle::Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2)
     triangle[0] = v0;
     triangle[1] = v1;
     triangle[2] = v2;
+
+    hasTexture = false;
 }
 
 
@@ -20,7 +22,8 @@ Triangle::Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2, const Vec2& t
     tex[0] = t0;
     tex[1] = t1;
     tex[2] = t2;
-         
+
+    hasTexture = true;
 }
 
 void Triangle::matrixMultiply(const Mat4x4& mat)

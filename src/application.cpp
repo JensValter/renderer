@@ -77,7 +77,7 @@ void Application::render()
     Mat4x4 model = Mat4x4::translation(0.0f, 0.0f, 10.0f) * Mat4x4::rotationY(m_theta);
     Mat4x4 view = m_camera.getViewMatrix();
     Mat4x4 proj = m_camera.getProjectionMatrix(m_window.width, m_window.height);
-    Vec3 light_direction = {0.0f, 0.0f, 1.0f};
+    Vec3 light_direction = {m_camera.getLookDirection()};
 
     for (const auto& tri : m_object.m_triangles)
     {
