@@ -1,4 +1,5 @@
 #include "rasterMath.h"
+#include "triangle.h"
 
 #include <cmath>
 
@@ -13,13 +14,11 @@ uint32_t brightnessModifier(float dotProduct, uint32_t color)
     return ((int)r << 16) | ((int)g << 8) | (int)b;
 }
 
-RasterVertex ndcToScreen(const Vec3& ndc, int width, int height)
+
+void ndcToScreen(Triangle& t, int width, int height)
 {
-    RasterVertex out;
-
-    out.x = (int)((ndc.x + 1.0f) * width * 0.5f);
-    out.y = (int)((1.0f - ndc.y) * height * 0.5f);
-    out.z = ndc.z;
-
-    return out;
+    for(int i = 0; i<3; i++){
+        t.triangle[i].x = std::round((t.triangle[i].x + 1.0f) * 0.5f * width);
+        t.triangle[i].y = std::round((1.0f - t.triangle[i].y) * 0.5f * height);
+    }
 }

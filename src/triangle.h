@@ -2,8 +2,7 @@
 #include <cstdint>
 #include "vec3.h"
 #include "mat4x4.h"
-#include "rasterMath.h"
-
+#include "vec2.h"
 class Triangle
 {
 public:
@@ -12,7 +11,6 @@ public:
     Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2, const Vec2& t0, const Vec2& t1, const Vec2& t2);
     void matrixMultiply(const Mat4x4& mat);
     void applyTransformation(const Mat4x4& mat);
-    void toNDC(int width, int height);
     void add(float x, float y, float z);
 
     Vec3 normal() const;
@@ -21,6 +19,5 @@ public:
     Vec3 triangle[3];
     Vec2 tex[3];
     uint32_t color;
-    bool hasTexture;
 };
 

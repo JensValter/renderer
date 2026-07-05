@@ -32,12 +32,13 @@ bool Object::loadObjectFromFile(const std::string &fileName) {
       auto p1 = vtFieldSeperator(v1);
       auto p2 = vtFieldSeperator(v2);
       auto p3 = vtFieldSeperator(v3);
-      if (p1.second == -1 && p2.second == -1 && p3.second == -1)
-        m_triangles.push_back({verticies[p1.first - 1], verticies[p2.first - 1], verticies[p3.first - 1]});
-      else if (p1.second != -1 && p2.second != -1 && p3.second != -1)
-        m_triangles.push_back({verticies[p1.first - 1], verticies[p2.first - 1], verticies[p3.first - 1], textureCoordinates[p1.second -1], textureCoordinates[p2.second -1], textureCoordinates[p3.second -1]});
-      else
-        return false;
+
+      Vec2 tex1 = (p1.second != -1) ? textureCoordinates[p1.second - 1] : Vec2{0, 0};
+      Vec2 tex2 = (p2.second != -1) ? textureCoordinates[p2.second - 1] : Vec2{0, 0};
+      Vec2 tex3 = (p3.second != -1) ? textureCoordinates[p3.second - 1] : Vec2{0, 0};
+
+      m_triangles.push_back({verticies[p1.first - 1], verticies[p2.first - 1], verticies[p3.first - 1],
+                             tex1, tex2, tex3});
   }
   }
   return true;

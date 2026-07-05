@@ -40,14 +40,14 @@ Vec3 Vec3::operator*=(float value)
     
 }
 
-Vec3 Vec3::vecPlanIntersect(const Vec3 &p0, const Vec3 &n, const Vec3 &start, const Vec3 &end)
+Vec3 Vec3::vecPlanIntersect(const Vec3 &p0, const Vec3 &n, const Vec3 &start, const Vec3 &end, float& t)
 {
     Vec3 v = end - start;
     float dp = n.dotProduct(v);
     if(fabs(dp) < 0.0001f)
         return start; // Line is parallel to the plane
 
-    float t = (-n.dotProduct(start - p0)) / dp;
+    t = (-n.dotProduct(start - p0)) / dp;
 
     return start + v * t;
 

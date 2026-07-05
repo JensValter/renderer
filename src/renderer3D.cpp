@@ -32,12 +32,12 @@ void Renderer3D::drawPixel(int x, int y, float z, uint32_t color) {
     }
 }
 
-void Renderer3D::drawLine(RasterVertex a, RasterVertex b, uint32_t color)
+void Renderer3D::drawLine(Vec3 a, Vec3 b, uint32_t color)
 {
-    int x0 = a.x;
-    int y0 = a.y;
-    int x1 = b.x;
-    int y1 = b.y;
+    int x0 = (int)a.x;
+    int y0 = (int)a.y;
+    int x1 = (int)b.x;
+    int y1 = (int)b.y;
 
     int dx = std::abs(x1 - x0);
     int dy = std::abs(y1 - y0);
@@ -85,10 +85,10 @@ void Renderer3D::drawHorizontalLine(int x0, int x1, int y, float z0, float z1, u
     }
 }
 
-void Renderer3D::drawTriangleOutline(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
-    drawLine(v1, v2, color);
-    drawLine(v2, v3, color);
-    drawLine(v3, v1, color);
+void Renderer3D::drawTriangleOutline(const Triangle& t, uint32_t color) {
+    drawLine(t.triangle[0], t.triangle[1], color);
+    drawLine(t.triangle[1], t.triangle[2], color);
+    drawLine(t.triangle[2], t.triangle[0], color);
 }
 
 
@@ -123,26 +123,24 @@ void Renderer3D::drawTriangle(const Triangle& triangle, const Mat4x4& model, con
         ndcClipping(nearTri, m_ndcClipped);
     }
 
-    for (const Triangle& clippedTri : m_ndcClipped)
+    for (Triangle& clippedTri : m_ndcClipped)
     {
-        RasterVertex p0 = ndcToScreen(clippedTri.triangle[0], width, height);
-        RasterVertex p1 = ndcToScreen(clippedTri.triangle[1], width, height);
-        RasterVertex p2 = ndcToScreen(clippedTri.triangle[2], width, height);
-        drawTriangleFill(p0, p1, p2, brightnessModifier(dotP,tri.color));
+        ndcToScreen(clippedTri, width, height);
+        drawTriangleFill(clippedTri, brightnessModifier(dotP, tri.color));
     }
 }
 
-void Renderer3D::drawFlatBottom(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
-    float dx_left  = (float)(v2.x - v1.x) / (float)(v2.y - v1.y);
-    float dx_right = (float)(v3.x - v1.x) / (float)(v3.y - v1.y);
+void Renderer3D::drawFlatBottom(Vec3 v1, Vec3 v2, Vec3 v3, uint32_t color) {
+    float dx_left  = (v2.x - v1.x) / (v2.y - v1.y);
+    float dx_right = (v3.x - v1.x) / (v3.y - v1.y);
 
-    float dz_left  = (v2.z - v1.z) / (float)(v2.y - v1.y);
-    float dz_right = (v3.z - v1.z) / (float)(v3.y - v1.y);
+    float dz_left  = (v2.z - v1.z) / (v2.y - v1.y);
+    float dz_right = (v3.z - v1.z) / (v3.y - v1.y);
 
     float x_left = v1.x, x_right = v1.x;
     float z_left = v1.z, z_right = v1.z;
 
-    for (int line = v1.y; line <= v2.y; line++) {
+    for (int line = (int)v1.y; line <= (int)v2.y; line++) {
         if (x_left <= x_right)
             drawHorizontalLine((int)x_left, (int)x_right, line, z_left, z_right, color);
         else
@@ -155,17 +153,17 @@ void Renderer3D::drawFlatBottom(RasterVertex v1, RasterVertex v2, RasterVertex v
     }
 }
 
-void Renderer3D::drawFlatTop(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
-    float dx_left  = (float)(v3.x - v1.x) / (float)(v3.y - v1.y);
-    float dx_right = (float)(v3.x - v2.x) / (float)(v3.y - v2.y);
+void Renderer3D::drawFlatTop(Vec3 v1, Vec3 v2, Vec3 v3, uint32_t color) {
+    float dx_left  = (v3.x - v1.x) / (v3.y - v1.y);
+    float dx_right = (v3.x - v2.x) / (v3.y - v2.y);
 
-    float dz_left  = (v3.z - v1.z) / (float)(v3.y - v1.y);
-    float dz_right = (v3.z - v2.z) / (float)(v3.y - v2.y);
+    float dz_left  = (v3.z - v1.z) / (v3.y - v1.y);
+    float dz_right = (v3.z - v2.z) / (v3.y - v2.y);
 
     float x_left = v3.x, x_right = v3.x;
     float z_left = v3.z, z_right = v3.z;
 
-    for (int line = v3.y; line >= v1.y; line--) {
+    for (int line = (int)v3.y; line >= (int)v1.y; line--) {
         if (x_left <= x_right)
             drawHorizontalLine((int)x_left, (int)x_right, line, z_left, z_right, color);
         else
@@ -178,7 +176,29 @@ void Renderer3D::drawFlatTop(RasterVertex v1, RasterVertex v2, RasterVertex v3, 
     }
 }
 
+void Renderer3D::drawTriangleFill(const Triangle& tri, uint32_t color) {
+    Vec3 v1 = tri.triangle[0];
+    Vec3 v2 = tri.triangle[1];
+    Vec3 v3 = tri.triangle[2];
 
+    if (v2.y < v1.y) std::swap(v1, v2);
+    if (v3.y < v1.y) std::swap(v1, v3);
+    if (v3.y < v2.y) std::swap(v2, v3);
+
+    if (v1.y == v3.y)
+        return;
+
+    if (v2.y == v3.y)
+        drawFlatBottom(v1, v2, v3, color);
+    else if (v1.y == v2.y)
+        drawFlatTop(v1, v2, v3, color);
+    else {
+        float t = (v2.y - v1.y) / (v3.y - v1.y);
+        Vec3 v4 = { v1.x + t * (v3.x - v1.x), v2.y, v1.z + t * (v3.z - v1.z) };
+        drawFlatBottom(v1, v2, v4, color);
+        drawFlatTop(v2, v4, v3, color);
+    }
+}
 
 //important to keep number of heap allocations low!!
 void Renderer3D::ndcClipping(Triangle t, std::vector<Triangle>& out)
@@ -213,54 +233,66 @@ void Renderer3D::planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &t, std::
 
     Vec3* inside_points[3]; 
     int insidePointCount = 0;
-
     Vec3* outside_points[3];
     int outsidePointsCount = 0;
+    Vec2* inside_tex_points[3];
+    int insideTexPointCount = 0;
+    Vec2* outside_tex_points[3];
+    int outsideTexPointCount = 0;
 
     for(int i = 0; i<3; i++){
-        float dist = Vec3::distanceToPlane(normal,t.triangle[i],p0);
-        dist >= 0 ? inside_points[insidePointCount++] = &t.triangle[i] : outside_points[outsidePointsCount++] = &t.triangle[i];
+        float dist = Vec3::distanceToPlane(normal, t.triangle[i], p0);
+        if(dist >= 0){
+            inside_points[insidePointCount++] = &t.triangle[i];
+            inside_tex_points[insideTexPointCount++] = &t.tex[i];
+        }
+        else{
+            outside_points[outsidePointsCount++] = &t.triangle[i];
+            outside_tex_points[outsideTexPointCount++] = &t.tex[i];
+        }
     }
 
     if(insidePointCount == 0);
-
     else if(insidePointCount == 3){
         out.push_back(t);
     }
 
     else if(insidePointCount == 1){
-            out.push_back({*inside_points[0], Vec3::vecPlanIntersect(
-            p0, normal, *inside_points[0], *outside_points[0]),Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[1])});
-    }
+        float t1;
+        Vec3 intersect1 = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0], t1);
+        float t2;
+        Vec3 intersect2 = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[1], t2);
 
+        Vec2 texIntersect1 = {
+            t1 * (outside_tex_points[0]->u - inside_tex_points[0]->u) + inside_tex_points[0]->u,
+            t1 * (outside_tex_points[0]->v - inside_tex_points[0]->v) + inside_tex_points[0]->v
+        };
+        Vec2 texIntersect2 = {
+            t2 * (outside_tex_points[1]->u - inside_tex_points[0]->u) + inside_tex_points[0]->u,
+            t2 * (outside_tex_points[1]->v - inside_tex_points[0]->v) + inside_tex_points[0]->v
+        };
+
+        out.push_back({*inside_points[0], intersect1, intersect2,
+                       *inside_tex_points[0], texIntersect1, texIntersect2});
+    }
     else if(insidePointCount == 2){
+        float t1;
+        Vec3 intersect1 = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0], t1);
+        float t2;
+        Vec3 intersect2 = Vec3::vecPlanIntersect(p0, normal, *inside_points[1], *outside_points[0], t2);
 
-        Vec3 intersect1 = Vec3::vecPlanIntersect(p0, normal, *inside_points[0], *outside_points[0]);
+        Vec2 texIntersect1 = {
+            t1 * (outside_tex_points[0]->u - inside_tex_points[0]->u) + inside_tex_points[0]->u,
+            t1 * (outside_tex_points[0]->v - inside_tex_points[0]->v) + inside_tex_points[0]->v
+        };
+        Vec2 texIntersect2 = {
+            t2 * (outside_tex_points[0]->u - inside_tex_points[1]->u) + inside_tex_points[1]->u,
+            t2 * (outside_tex_points[0]->v - inside_tex_points[1]->v) + inside_tex_points[1]->v
+        };
 
-        Vec3 intersect2 = Vec3::vecPlanIntersect(p0, normal, *inside_points[1], *outside_points[0]);
-
-        out.push_back({*inside_points[0],*inside_points[1], intersect1});
-        out.push_back({*inside_points[1], intersect2, intersect1});
-    }
-}
-
-
-void Renderer3D::drawTriangleFill(RasterVertex v1, RasterVertex v2, RasterVertex v3, uint32_t color) {
-    if (v2.y < v1.y) std::swap(v1, v2);
-    if (v3.y < v1.y) std::swap(v1, v3);
-    if (v3.y < v2.y) std::swap(v2, v3);
-
-    if (v1.y == v3.y)
-        return;
-
-    if (v2.y == v3.y)
-        drawFlatBottom(v1, v2, v3, color);
-    else if (v1.y == v2.y)
-        drawFlatTop(v1, v2, v3, color);
-    else {
-        float t = (float)(v2.y - v1.y) / (float)(v3.y - v1.y);
-        RasterVertex v4 = { (int)(v1.x + t * (v3.x - v1.x)), v2.y, v1.z + t * (v3.z - v1.z) };
-        drawFlatBottom(v1, v2, v4, color);
-        drawFlatTop(v2, v4, v3, color);
+        out.push_back({*inside_points[0], *inside_points[1], intersect1,
+                       *inside_tex_points[0], *inside_tex_points[1], texIntersect1});
+        out.push_back({*inside_points[1], intersect2, intersect1,
+                       *inside_tex_points[1], texIntersect2, texIntersect1});
     }
 }

@@ -10,7 +10,7 @@ struct Vec3
     Vec3 operator-(const Vec3& v) const;
     Vec3 operator*(float value) const;
     Vec3 operator *= (float value);
-    static Vec3 vecPlanIntersect(const Vec3 & p0, const Vec3 & n, const Vec3 &start, const Vec3 & end);
+    static Vec3 vecPlanIntersect(const Vec3 & p0, const Vec3 & n, const Vec3 &start, const Vec3 & end, float &t);
     Vec3& operator+=(const Vec3& v);
     Vec3& operator-=(const Vec3& v);
     
