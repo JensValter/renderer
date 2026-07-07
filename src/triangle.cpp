@@ -12,6 +12,11 @@ Triangle::Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2)
 }
 
 
+void Triangle::vertexSwap(int p1, int p2){
+    std::swap(this->triangle[p1], this->triangle[p2]);
+    std::swap(this->tex[p1] , this->tex[p2]);
+}
+
 Triangle::Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2, const Vec2& t0, const Vec2& t1, const Vec2& t2){
 
     triangle[0] = v0;

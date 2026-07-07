@@ -3,6 +3,7 @@
 #include "vec3.h"
 #include "mat4x4.h"
 #include "vec2.h"
+#include <utility>
 class Triangle
 {
 public:
@@ -15,7 +16,9 @@ public:
 
     Vec3 normal() const;
     Vec3 toCamera(const Vec3& camera_pos) const;
-    
+
+    void vertexSwap(int p1, int p2);
+    float brightness = 1;        
     Vec3 triangle[3];
     Vec2 tex[3];
     uint32_t color;

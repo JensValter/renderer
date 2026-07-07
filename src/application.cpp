@@ -23,7 +23,9 @@ bool Application::init(int width, int height, const std::string &windowTitle, co
     }
 
     m_camera = Camera();
-
+    m_object.texture.width = 2;
+    m_object.texture.height = 2;
+    m_object.texture.texBuffer = {0xFF0000FF, 0xFFFFFFFF,0xFFFFFFFF, 0xFF0000FF};
     return true;
 }
 
@@ -81,7 +83,7 @@ void Application::render()
 
     for (const auto& tri : m_object.m_triangles)
     {
-        m_renderer->drawTriangle(tri,model , view, proj, m_camera.camPos, light_direction, m_window.width, m_window.height);
+        m_renderer->drawTriangle(tri,model , view, proj, m_camera.camPos, light_direction, m_object.texture, m_window.width, m_window.height);
     }
     m_window.draw();
 }
