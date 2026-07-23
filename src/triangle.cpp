@@ -2,55 +2,77 @@
 #include "mat4x4.h"
 #include "rasterMath.h"
 
-Triangle::Triangle(const Vec3& v0, const Vec3& v1, const Vec3& v2)
+
+Triangle::Triangle(const Vec4& v0, const Vec4& v1, const Vec4& v2)
 {
     triangle[0] = v0;
     triangle[1] = v1;
     triangle[2] = v2;
+
+}
+
+
+void Triangle::vertexSwap(int p1, int p2){
+    std::swap(this->triangle[p1], this->triangle[p2]);
+    std::swap(this->tex[p1] , this->tex[p2]);
+}
+
+Triangle::Triangle(const Vec4& v0, const Vec4& v1, const Vec4& v2, const Vec2& t0, const Vec2& t1, const Vec2& t2){
+
+    triangle[0] = v0;
+    triangle[1] = v1;
+    triangle[2] = v2;
+
+    tex[0] = t0;
+    tex[1] = t1;
+    tex[2] = t2;
 }
 
 void Triangle::matrixMultiply(const Mat4x4& mat)
 {
-    triangle[0] = mat.vecMultiply(triangle[0]);
-    triangle[1] = mat.vecMultiply(triangle[1]);
-    triangle[2] = mat.vecMultiply(triangle[2]);
+        for(int i = 0; i<3; i++)
+            triangle[i] = mat.vecMultiply(triangle[i]);
 }
 
-void Triangle::toNDC(int width, int height)
+void Triangle::applyTransformation(const Mat4x4& mat)
 {
-    ndcToScreen(triangle[0],width, height);
-    ndcToScreen(triangle[1],width, height);
-    ndcToScreen(triangle[2],width, height);
+        for(int i = 0; i<3; i++){
+            triangle[i] = mat.vecMultiply(triangle[i]);
+
+            if (triangle[i].w != 0.0f){
+                float wInv = 1.0f / triangle[i].w;
+                triangle[i].x *= wInv;
+                triangle[i].y *= wInv;
+                triangle[i].z *= wInv;
+               
+            }
+
+        }
+
 }
 
 void Triangle::add(float x, float y, float z)
 {
-    triangle[0].x += x;
-    triangle[0].y += y;
-    triangle[0].z += z;
-
-    triangle[1].x += x;
-    triangle[1].y += y;
-    triangle[1].z += z;
-
-    triangle[2].x += x;
-    triangle[2].y += y;
-    triangle[2].z += z;
+    for(Vec4 v: triangle){
+        v.x += x;
+        v.y += y;
+        v.z += z;
+    }
 }
 
-
-
-Vec3 Triangle::normal() const
+Vec4 Triangle::normal() const
 {
-    Vec3 line1 = triangle[1] - triangle[0];
-    Vec3 line2 = triangle[2] - triangle[0];
+    Vec4 line1 = triangle[1] - triangle[0];
+    Vec4 line2 = triangle[2] - triangle[0];
 
-    Vec3 out = line1.crossProduct(line2);
+    Vec4 out = line1.crossProduct(line2);
 
     return out;
 }
 
-Vec3 Triangle::toCamera(const Vec3& camera_pos) const
+
+Vec4 Triangle::toCamera(const Vec4& camera_pos) const
 {
     return camera_pos - triangle[0];
 }
+

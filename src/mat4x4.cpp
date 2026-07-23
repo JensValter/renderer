@@ -82,15 +82,15 @@ Mat4x4 Mat4x4::projection(int screen_width, int screen_height, float fov_degrees
     return out;
 }
 
-Mat4x4 Mat4x4::view(Vec3 &camera, Vec3 &target, Vec3 &up)
+Mat4x4 Mat4x4::view(const Vec4 &camera, const Vec4 &target, const Vec4 &up)
 {
-    Vec3 f = (target - camera);
+    Vec4 f = (target - camera);
     f.normalizeVector();
 
-    Vec3 r = up.crossProduct(f);;
+    Vec4 r = up.crossProduct(f);;
     r.normalizeVector();
 
-    Vec3 u = f.crossProduct(r);
+    Vec4 u = f.crossProduct(r);
 
     Mat4x4 out;
 
@@ -114,24 +114,19 @@ Mat4x4 Mat4x4::view(Vec3 &camera, Vec3 &target, Vec3 &up)
     return out;
 }
 
-Vec3 Mat4x4::vecMultiply(const Vec3 &v) const
+Vec4 Mat4x4::vecMultiply(const Vec4 &v) const
 {
-    Vec3 out;
-
+    Vec4 out;
     out.x = matrix[0][0] * v.x + matrix[0][1] * v.y + matrix[0][2] * v.z + matrix[0][3];
     out.y = matrix[1][0] * v.x + matrix[1][1] * v.y + matrix[1][2] * v.z + matrix[1][3];
     out.z = matrix[2][0] * v.x + matrix[2][1] * v.y + matrix[2][2] * v.z + matrix[2][3];
-
-    float w = matrix[3][0] * v.x + matrix[3][1] * v.y + matrix[3][2] * v.z + matrix[3][3];
-
-    if (w != 0.0f)
-    {
-        out.x /= w;
-        out.y /= w;
-        out.z /= w;
-    }
-
+    out.w = matrix[3][0] *  v.x + matrix[3][1] * v.y + matrix[3][2] * v.z + matrix[3][3];
     return out;
+}
+
+float Mat4x4::getW(const Vec4& v) const
+{
+   return matrix[3][0] *  v.x + matrix[3][1] * v.y + matrix[3][2] * v.z + matrix[3][3];
 }
 
 Mat4x4 Mat4x4::operator*(const Mat4x4 &m) const
