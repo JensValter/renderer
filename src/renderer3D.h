@@ -25,15 +25,15 @@ public:
     
     void clear(uint32_t color);
     void drawPixel(int x, int y, float z, uint32_t color, float brightness);
-    void drawLine(Vec3 a, Vec3 b, uint32_t color);
+    void drawLine(Vec4 a, Vec4 b, uint32_t color);
     void drawHorizontalLine(int x0, int x1, int y, float z0, float z1,
-                             float u0, float u1, float v0, float v1, float brightness, const Texture& texture);
+                             float u0, float u1, float v0, float v1, float w0, float w1, float brightness, const Texture& texture);
     void drawFlatBottom(Triangle &tri, const Texture& texture);
     void drawFlatTop(Triangle &tri, const Texture& texure);
-    void planeClipping(const Vec3 &p0, const Vec3 &n, Triangle &t, std::vector<Triangle>& out);
+    void planeClipping(const Vec4 &p0, const Vec4 &n, Triangle &t, std::vector<Triangle>& out);
     void ndcClipping(Triangle t,std::vector<Triangle>& out);
     void drawTriangle(const Triangle& triangle,const Mat4x4& model, const Mat4x4& view, const Mat4x4& proj,
-                   const Vec3& camPos, const Vec3& lightDir, const Texture& texture, int width, int height);        
+                   const Vec4& camPos, const Vec4& lightDir, const Texture& texture, int width, int height);        
     void drawTriangleOutline(const Triangle& t, uint32_t color);
     void drawTriangleFill(Triangle& t, const Texture& tex);
 };

@@ -20,5 +20,10 @@ void ndcToScreen(Triangle& t, int width, int height)
     for(int i = 0; i<3; i++){
         t.triangle[i].x = std::round((t.triangle[i].x + 1.0f) * 0.5f * width);
         t.triangle[i].y = std::round((1.0f - t.triangle[i].y) * 0.5f * height);
+        float wInv = 1.0f / t.triangle[i].w;
+        t.tex[i].u *= wInv;
+        t.tex[i].v *= wInv;
+        t.triangle[i].w = wInv;
+        
     }
 }

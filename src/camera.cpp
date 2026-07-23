@@ -27,19 +27,19 @@ float Camera::getLookSensitivity() const
     return m_lookSensitivity;
 }
 
-Vec3 Camera::getUp() const
+Vec4 Camera::getUp() const
 {
     return m_up;
 }
 
-Vec3 Camera::getLookDirection() const
+Vec4 Camera::getLookDirection() const
 {
     return m_lookDir;
 }
 
 Mat4x4 Camera::getViewMatrix() const
 {
-    Vec3 target = camPos + m_lookDir;
+    Vec4 target = camPos + m_lookDir;
     return Mat4x4::view(camPos, target, m_up);
 }
 
@@ -53,9 +53,9 @@ float Camera::getMouseSensitivity() const
     return m_mouseSensitivity;
 }
 
-Vec3 Camera::getRight() const
+Vec4 Camera::getRight() const
 {
-    Vec3 right = m_up.crossProduct(m_lookDir);
+    Vec4 right = m_up.crossProduct(m_lookDir);
     right.normalizeVector();
     return right;
 }
@@ -84,7 +84,7 @@ void Camera::updateCameraDirection()
      constexpr float epsilon = 0.01f;
     m_lookPhi = std::clamp(m_lookPhi, epsilon, 3.14159265f - epsilon);
 
-    Vec3 direction;
+    Vec4 direction;
     direction.z = sinf(m_lookTheta) * sinf(m_lookPhi);
     direction.x = -(cosf(m_lookTheta) * sinf(m_lookPhi));
     direction.y = cosf(m_lookPhi);

@@ -35,8 +35,8 @@ void Application::update()
 
     m_camera.processMouseLook(m_window.input.mouseX, m_window.input.mouseY);
 
-    Vec3 forward = m_camera.getLookDirection();
-    Vec3 right = m_camera.getRight();
+    Vec4 forward = m_camera.getLookDirection();
+    Vec4 right = m_camera.getRight();
 
     if (m_window.input.IsDown(Key::W))
         m_camera.camPos += forward * moveSpeed;
@@ -79,7 +79,7 @@ void Application::render()
     Mat4x4 model = Mat4x4::translation(0.0f, 0.0f, 10.0f) * Mat4x4::rotationY(m_theta);
     Mat4x4 view = m_camera.getViewMatrix();
     Mat4x4 proj = m_camera.getProjectionMatrix(m_window.width, m_window.height);
-    Vec3 light_direction = {m_camera.getLookDirection()};
+    Vec4 light_direction = {m_camera.getLookDirection()};
 
     for (const auto& tri : m_object.m_triangles)
     {

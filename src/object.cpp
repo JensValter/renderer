@@ -10,7 +10,7 @@ bool Object::loadObjectFromFile(const std::string &fileName) {
     return false;
   }
   std::string line;
-  std::vector<Vec3> verticies;
+  std::vector<Vec4> verticies;
   std::vector<Vec2> textureCoordinates;
   while (std::getline(stream, line)) {
     std::stringstream ss(line);

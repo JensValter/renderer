@@ -3,7 +3,7 @@ int main()
 {
     Application application;
 
-    if(!application.init(960,540, "Title", "Teapot.obj")){
+    if(!application.init(960,540, "Title", "cube.obj")){
         return 1;
     }
     
